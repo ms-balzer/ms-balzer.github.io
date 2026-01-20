@@ -1,9 +1,9 @@
 ---
 title: "BALZER LAB"
-summary: "Research group in nephrology studying how kidney cells adapt, recover, and fail in disease using single-cell multi-omics."
-description: "The BALZER LAB investigates molecular mechanisms of kidney disease, fibroinflammatory niches, and translational single-cell multi-omics to advance precision nephrology."
 title_seo: "BALZER LAB"
-date: 2026-01-20
+summary: "Research group in nephrology studying how kidney cells adapt, recover, and fail in disease using single-cell multi-omics."
+description: "The Balzer Lab investigates molecular mechanisms of kidney disease, fibroinflammatory niches, and translational single-cell multi-omics to advance precision nephrology."
+date: 2026-01-16
 type: landing
 
 sections:
@@ -130,21 +130,9 @@ sections:
             padding-bottom: 0;
           }
 
-          .hero-vcenter .hero-media img,
-          .hero-vcenter .hero-image img,
           .hero-vcenter img {
             display: block;
             margin: 0 auto;
-          }
-
-          /* -------------------------------------------------------------------------- */
-          /* FORCE HERO TEXT COLUMN TO HAVE HEIGHT                                       */
-          /* -------------------------------------------------------------------------- */
-
-          .hb-hero-compact .hero-content,
-          .hb-hero-compact .hero-content .row,
-          .hb-hero-compact .hero-content [class*="col"] {
-            height: 100%;
           }
 
           /* -------------------------------------------------------------------------- */
@@ -161,30 +149,18 @@ sections:
           @media (max-width: 768px) {
             .hb-hero-compact .hb-hero-text {
               min-height: unset;
-              justify-content: flex-start;
             }
           }
 
-          .hb-hero-compact .hero-media,
-          .hb-hero-compact .hero-media figure,
-          .hb-hero-compact .hero-media picture {
-            max-height: none;
-          }
-
-          .hb-hero-compact .hero-media img,
-          .hb-hero-compact .hero-media picture img {
+          .hb-hero-compact .hero-media img {
             height: var(--hb-hero-logo-h);
             width: auto;
-            max-height: none;
             max-width: 100%;
             object-fit: contain;
-            display: block;
-            margin: 0 auto;
           }
 
           @media (max-width: 768px) {
-            .hb-hero-compact .hero-media img,
-            .hb-hero-compact .hero-media picture img {
+            .hb-hero-compact .hero-media img {
               height: var(--hb-hero-logo-h-mobile);
             }
           }
@@ -192,19 +168,28 @@ sections:
 
         <div class="hb-fullbleed">
           <div class="hb-slider" id="hbHomeSlider">
-            <div class="hb-slide is-active"><img src="/media/slide1.png" alt="Kidney research using single-cell omics"></div>
-            <div class="hb-slide"><img src="/media/slide2.png" alt="Renal tissue and cellular microenvironment"></div>
-            <div class="hb-slide"><img src="/media/slide3.png" alt="Fibroinflammatory niches in kidney disease"></div>
-            <div class="hb-slide"><img src="/media/slide4.png" alt="Translational nephrology research"></div>
+
+            <div class="hb-slide is-active">
+              <img src="/media/slide1.png" alt="Single-cell kidney research">
+            </div>
+            <div class="hb-slide">
+              <img src="/media/slide2.png" alt="Renal tissue and cellular microenvironment">
+            </div>
+            <div class="hb-slide">
+              <img src="/media/slide3.png" alt="Fibroinflammatory niches in kidney disease">
+            </div>
+            <div class="hb-slide">
+              <img src="/media/slide4.png" alt="Translational nephrology research">
+            </div>
 
             <button class="hb-nav prev" type="button" aria-label="Previous slide">‹</button>
             <button class="hb-nav next" type="button" aria-label="Next slide">›</button>
 
             <ul class="hb-indicators" aria-label="Choose slide">
-              <li><button type="button" aria-label="Slide 1" aria-current="true"></button></li>
-              <li><button type="button" aria-label="Slide 2" aria-current="false"></button></li>
-              <li><button type="button" aria-label="Slide 3" aria-current="false"></button></li>
-              <li><button type="button" aria-label="Slide 4" aria-current="false"></button></li>
+              <li><button type="button" aria-current="true"></button></li>
+              <li><button type="button"></button></li>
+              <li><button type="button"></button></li>
+              <li><button type="button"></button></li>
             </ul>
           </div>
         </div>
@@ -213,46 +198,35 @@ sections:
           (function(){
             var root = document.getElementById('hbHomeSlider');
             if (!root) return;
-            var slides = Array.prototype.slice.call(root.querySelectorAll('.hb-slide'));
-            var dots = Array.prototype.slice.call(root.querySelectorAll('.hb-indicators button'));
+
+            var slides = Array.from(root.querySelectorAll('.hb-slide'));
+            var dots = Array.from(root.querySelectorAll('.hb-indicators button'));
             var prev = root.querySelector('.hb-nav.prev');
             var next = root.querySelector('.hb-nav.next');
             var i = 0;
             var timer = null;
-            var intervalMs = 4500;
 
             function show(n){
               i = (n + slides.length) % slides.length;
-              slides.forEach(function(s,k){
-                s.classList.toggle('is-active', k === i);
-              });
-              dots.forEach(function(d,k){
-                d.setAttribute('aria-current', k === i ? 'true' : 'false');
-              });
+              slides.forEach((s,k)=>s.classList.toggle('is-active',k===i));
+              dots.forEach((d,k)=>d.setAttribute('aria-current',k===i));
             }
 
             function start(){
               stop();
-              timer = window.setInterval(function(){ show(i + 1); }, intervalMs);
+              timer = setInterval(()=>show(i+1),4500);
             }
 
             function stop(){
-              if (timer) window.clearInterval(timer);
-              timer = null;
+              if (timer) clearInterval(timer);
             }
 
-            dots.forEach(function(d,k){
-              d.addEventListener('click', function(){
-                show(k);
-                start();
-              });
-            });
+            dots.forEach((d,k)=>d.onclick=()=>{show(k);start();});
+            prev.onclick=()=>{show(i-1);start();};
+            next.onclick=()=>{show(i+1);start();};
 
-            if (prev) prev.addEventListener('click', function(){ show(i - 1); start(); });
-            if (next) next.addEventListener('click', function(){ show(i + 1); start(); });
-
-            root.addEventListener('mouseenter', stop);
-            root.addEventListener('mouseleave', start);
+            root.onmouseenter=stop;
+            root.onmouseleave=start;
             start();
           })();
         </script>
@@ -261,23 +235,57 @@ sections:
       spacing:
         padding: ["0", "0", "0", "0"]
 
-# 2) Hero
-- block: hero
-  content:
-    image:
-      filename: balzerlab.png
-    text: |
-      <div class="hb-hero-text">
-        <p>
-          We uncover how kidney cells <strong>adapt, recover, and fail</strong> in disease.
-        </p>
-        <p>
-          Using <strong>single-cell multi-omics</strong>, we drive early diagnosis, precise classification,
-          and personalized therapies for <strong>kidney disorders</strong>.
-        </p>
-      </div>
-  design:
-    css_class: hb-hero-compact hero-vcenter
-    spacing:
-      padding: ["1rem", "0", "1rem", "0"]
+  # 2) Hero
+  - block: hero
+    content:
+      image:
+        filename: balzerlab.png
+      text: |
+        <div class="hb-hero-text">
+          <p>
+            We uncover how kidney cells <strong>adapt, recover, and fail</strong> in disease.
+          </p>
+          <p>
+            Using <strong>single-cell multi-omics</strong>, we drive early diagnosis, precise classification,
+            and personalized therapies for <strong>kidney disorders</strong>.
+          </p>
+        </div>
+    design:
+      css_class: hb-hero-compact hero-vcenter
+      spacing:
+        padding: ["1rem", "0", "1rem", "0"]
+
+  # 3) Navigation buttons
+  - block: markdown
+    content:
+      title: ""
+      text: |
+        <div class="home-nav-buttons">
+          <a class="btn btn-primary" href="/research/">Learn about our Research →</a>
+          <a class="btn btn-primary" href="/team/">Meet the team →</a>
+          <a class="btn btn-primary" href="/publications/">Read our Publications →</a>
+          <a class="btn btn-primary" href="/news/">Get the latest news →</a>
+          <a class="btn btn-primary" href="/contact/">Join our team →</a>
+          <a class="btn btn-primary" href="/social/">Find us on Bluesky →</a>
+        </div>
+
+  # 4) Grants
+  - block: markdown
+    content:
+      title: ""
+      text: |
+        <div class="grants-section text-center">
+          <p>We gratefully acknowledge funding and support from:</p>
+          <div class="grants-logos">
+            <img src="/media/logos/erc.png" alt="European Research Council">
+            <img src="/media/logos/dfg.png" alt="German Research Foundation">
+            <img src="/media/logos/ekfs.svg" alt="EKFS Foundation">
+            <img src="/media/logos/jackstaedt.png" alt="Jackstädt Foundation">
+            <img src="/media/logos/dgfn.svg" alt="German Society of Nephrology">
+            <img src="/media/logos/daad.png" alt="DAAD">
+            <img src="/media/logos/bihacademy.png" alt="BIH Academy">
+            <img src="/media/logos/bihcsp.png" alt="BIH Clinician Scientist Program">
+            <img src="/media/logos/sonnenfeld.png" alt="Sonnenfeld Foundation">
+          </div>
+        </div>
 ---
