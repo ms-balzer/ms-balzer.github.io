@@ -122,7 +122,5 @@ publications:
   date_format: January 2006
   citation_style: apa
 
-hugoblox:
-  analytics:
-    google:
-      measurement_id: "G-CLPKJ296DC"
+params:
+  ga4_measurement_id: "G-CLPKJ296DC"
