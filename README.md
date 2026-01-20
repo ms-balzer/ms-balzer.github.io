@@ -1,4 +1,4 @@
-# Balzer Lab
+# BALZER LAB
 
 Official website of the **Balzer Lab**, a research group in nephrology studying
 molecular mechanisms of kidney disease, fibroinflammatory niches, and
