@@ -1,0 +1,122 @@
+<script>
+  (function () {
+    // Only run on the publications page
+    if (!window.location.pathname.includes("/publications")) return;
+
+    const mount = document.getElementById("pubmed-pubs");
+    if (!mount) return;
+
+    // Your PubMed query
+    const TERM = '(Balzer MS) OR (S Balzer M)';
+
+    // Safety/performance: cap the number rendered (change if you want)
+    const MAX_TO_RENDER = 300;
+
+    // NCBI E-utilities endpoints (ESearch + ESummary)
+    // Docs: https://eutilities.github.io/ (see Quick Start + Reference Guide)
+    async function esearch(term) {
+      const url = new URL("https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi");
+      url.searchParams.set("db", "pubmed");
+      url.searchParams.set("term", term);
+      url.searchParams.set("retmode", "json");
+      url.searchParams.set("retmax", String(MAX_TO_RENDER));
+      url.searchParams.set("sort", "date");
+      // Optional but recommended identification:
+      url.searchParams.set("email", "michael-soeren.balzer@charite.de");
+
+      const res = await fetch(url.toString(), { headers: { "Accept": "application/json" }});
+      if (!res.ok) throw new Error("PubMed ESearch failed: " + res.status);
+      return res.json();
+    }
+
+    async function esummary(pmids) {
+      const url = new URL("https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi");
+      url.searchParams.set("db", "pubmed");
+      url.searchParams.set("id", pmids.join(","));
+      url.searchParams.set("retmode", "json");
+      url.searchParams.set("email", "michael-soeren.balzer@charite.de");
+
+      const res = await fetch(url.toString(), { headers: { "Accept": "application/json" }});
+      if (!res.ok) throw new Error("PubMed ESummary failed: " + res.status);
+      return res.json();
+    }
+
+    function escapeHtml(s) {
+      return String(s)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function renderItems(items) {
+      const html = items.map((it) => {
+        const title = it.title ? escapeHtml(it.title) : "Untitled";
+        const journal = it.fulljournalname ? escapeHtml(it.fulljournalname) : "";
+        const year = (it.pubdate || "").slice(0, 4);
+        const authors = Array.isArray(it.authors) ? it.authors.map(a => a.name).filter(Boolean).join(", ") : "";
+        const pmid = it.uid;
+        const link = `https://pubmed.ncbi.nlm.nih.gov/${pmid}/`;
+
+        return `
+          <div class="pubmed-item">
+            <div class="pubmed-title"><a href="${link}" target="_blank" rel="noopener">${title}</a></div>
+            <div class="pubmed-meta">
+              ${authors ? escapeHtml(authors) + " · " : ""}${journal ? journal + " · " : ""}${year ? year : ""}
+              <span class="pubmed-pmid">PMID: ${pmid}</span>
+            </div>
+          </div>
+        `;
+      }).join("");
+
+      mount.innerHTML = `<div class="pubmed-list">${html}</div>`;
+    }
+
+    async function run() {
+      try {
+        mount.textContent = "Loading publications from PubMed…";
+
+        const search = await esearch(TERM);
+        const ids = (search.esearchresult && search.esearchresult.idlist) ? search.esearchresult.idlist : [];
+        if (!ids.length) {
+          mount.textContent = "No publications found for this PubMed query.";
+          return;
+        }
+
+        // ESummary works best in chunks
+        const chunkSize = 100;
+        const all = [];
+        for (let i = 0; i < ids.length; i += chunkSize) {
+          const chunk = ids.slice(i, i + chunkSize);
+          const sum = await esummary(chunk);
+
+          const result = sum.result || {};
+          const uids = result.uids || [];
+          for (const uid of uids) {
+            if (result[uid]) all.push(result[uid]);
+          }
+
+          // Be polite: avoid hammering NCBI
+          await new Promise(r => setTimeout(r, 350));
+        }
+
+        renderItems(all);
+      } catch (e) {
+        console.error(e);
+        mount.innerHTML = `
+          <p>Could not load publications automatically.</p>
+          <p>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%28Balzer+MS%29OR%28S+Balzer+M%29" target="_blank" rel="noopener">Open PubMed search</a>
+          </p>
+        `;
+      }
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", run);
+    } else {
+      run();
+    }
+  })();
+</script>

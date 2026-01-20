@@ -1,0 +1,42 @@
+{{/* Renders all pages from the "news" section with full content + optional thumbnail + optional external link */}}
+
+{{ $pages := where site.RegularPages "Section" "news" }}
+{{ $pages = $pages.ByDate.Reverse }}
+
+<div class="news-full">
+  {{ range $pages }}
+    {{ $p := . }}
+
+    <article class="news-full-item">
+      <div class="news-full-row">
+        {{ with $p.Params.image }}
+          {{/* image.filename is relative to /media when stored in assets/media */}}
+          {{ $src := printf "/media/%s" .filename }}
+          <a class="news-thumb" href="{{ $p.RelPermalink }}">
+            <img src="{{ $src }}" alt="{{ .alt_text | default $p.Title }}">
+          </a>
+        {{ end }}
+
+        <div class="news-full-main">
+          <h3 class="news-full-title">
+            <a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a>
+          </h3>
+
+          <div class="news-full-date">{{ $p.Date.Format "02 Jan 2006" }}</div>
+
+          <div class="news-full-content">
+            {{ $p.Content }}
+          </div>
+
+          {{ with $p.Params.external_url }}
+            <p class="news-full-links">
+              <a class="btn btn-outline-primary" href="{{ . }}" target="_blank" rel="noopener">
+                {{ $p.Params.external_label | default "Read more" }}
+              </a>
+            </p>
+          {{ end }}
+        </div>
+      </div>
+    </article>
+  {{ end }}
+</div>

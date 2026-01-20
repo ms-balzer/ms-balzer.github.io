@@ -1,0 +1,13 @@
+<div class="research-linkrow">
+  <a class="research-link" href="{{ .Get "href" }}" target="_blank" rel="noopener">
+    {{ .Get "label" }}
+  </a>
+
+  <div class="research-funders">
+    {{ $logos := split (.Get "logos") "," }}
+    {{ range $logos }}
+      {{ $src := . | strings.TrimSpace }}
+      <img class="research-funder" src="{{ $src }}" alt="">
+    {{ end }}
+  </div>
+</div>

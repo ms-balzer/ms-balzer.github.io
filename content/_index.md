@@ -1,0 +1,328 @@
+---
+title: ""
+date: 2026-01-16
+type: landing
+
+sections:
+  # 1) Full-bleed custom slider + global CSS for slider + hero tweaks
+  - block: markdown
+    content:
+      title: ""
+      text: |
+        {{< rawhtml >}}
+        <style>
+          :root {
+            /* HERO LOGO SIZE */
+            --hb-hero-logo-h: 450px;
+            --hb-hero-logo-h-mobile: 220px;
+          }
+
+          /* -------------------------------------------------------------------------- */
+          /* SLIDER                                                                      */
+          /* -------------------------------------------------------------------------- */
+
+          .hb-fullbleed {
+            width: 100vw;
+            margin-left: calc(50% - 50vw);
+            margin-right: calc(50% - 50vw);
+          }
+
+          .hb-slider {
+            position: relative;
+            height: 380px;
+            overflow: hidden;
+          }
+
+          @media (max-width: 768px) {
+            .hb-slider { height: 240px; }
+          }
+
+          .hb-slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 450ms ease;
+          }
+
+          .hb-slide.is-active { opacity: 1; }
+
+          .hb-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+          }
+
+          .hb-indicators {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 14px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            z-index: 5;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            pointer-events: none;
+          }
+
+          .hb-indicators button {
+            pointer-events: auto;
+            width: 38px;
+            height: 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.65);
+            background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(6px);
+            cursor: pointer;
+          }
+
+          .hb-indicators button[aria-current="true"] {
+            background: rgba(255,255,255,0.85);
+          }
+
+          .hb-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 6;
+            width: 44px;
+            height: 44px;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.55);
+            background: rgba(255,255,255,0.18);
+            display: grid;
+            place-items: center;
+            cursor: pointer;
+            user-select: none;
+          }
+
+          .hb-nav.prev { left: 14px; }
+          .hb-nav.next { right: 14px; }
+
+          /* -------------------------------------------------------------------------- */
+          /* HERO V-CENTER                                                               */
+          /* -------------------------------------------------------------------------- */
+
+          /* 1) Center the hero grid vertically */
+          .hero-vcenter .row {
+            align-items: center;
+          }
+
+          /* 2) Remove vertical whitespace injected by container + hero inner wrappers */
+          .hero-vcenter .container,
+          .hero-vcenter .container-fluid {
+            padding-top: 0;
+            padding-bottom: 0;
+          }
+
+          .hero-vcenter .hero-content,
+          .hero-vcenter .hero-lead,
+          .hero-vcenter .hero-text,
+          .hero-vcenter .hero-media,
+          .hero-vcenter .hero-image {
+            margin-top: 0;
+            margin-bottom: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+          }
+
+          /* 3) Ensure hero image does not introduce extra whitespace */
+          .hero-vcenter .hero-media img,
+          .hero-vcenter .hero-image img,
+          .hero-vcenter img {
+            display: block;
+            margin: 0 auto;
+          }
+
+          /* -------------------------------------------------------------------------- */
+          /* FORCE HERO TEXT COLUMN TO HAVE HEIGHT                                       */
+          /* -------------------------------------------------------------------------- */
+
+          .hb-hero-compact .hero-content,
+          .hb-hero-compact .hero-content .row,
+          .hb-hero-compact .hero-content [class*="col"] {
+            height: 100%;
+          }
+
+          /* -------------------------------------------------------------------------- */
+          /* HERO TEXT: robust vertical centering via wrapper                            */
+          /* -------------------------------------------------------------------------- */
+
+          .hb-hero-compact .hb-hero-text {
+            min-height: var(--hb-hero-logo-h);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          }
+
+          @media (max-width: 768px) {
+            .hb-hero-compact .hb-hero-text {
+              min-height: unset;
+              justify-content: flex-start;
+            }
+          }
+
+          /* Logo sizing (kept here so it still works with big heights) */
+          .hb-hero-compact .hero-media,
+          .hb-hero-compact .hero-media figure,
+          .hb-hero-compact .hero-media picture {
+            max-height: none;
+          }
+
+          .hb-hero-compact .hero-media img,
+          .hb-hero-compact .hero-media picture img {
+            height: var(--hb-hero-logo-h);
+            width: auto;
+            max-height: none;
+            max-width: 100%;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+          }
+
+          @media (max-width: 768px) {
+            .hb-hero-compact .hero-media img,
+            .hb-hero-compact .hero-media picture img {
+              height: var(--hb-hero-logo-h-mobile);
+            }
+          }
+        </style>
+
+        <div class="hb-fullbleed">
+          <div class="hb-slider" id="hbHomeSlider">
+
+            <div class="hb-slide is-active"><img src="/media/slide1.png" alt="Research image 1"></div>
+            <div class="hb-slide"><img src="/media/slide2.png" alt="Research image 2"></div>
+            <div class="hb-slide"><img src="/media/slide3.png" alt="Research image 3"></div>
+            <div class="hb-slide"><img src="/media/slide4.png" alt="Research image 4"></div>
+
+            <button class="hb-nav prev" type="button" aria-label="Previous slide">‹</button>
+            <button class="hb-nav next" type="button" aria-label="Next slide">›</button>
+
+            <ul class="hb-indicators" aria-label="Choose slide">
+              <li><button type="button" aria-label="Slide 1" aria-current="true"></button></li>
+              <li><button type="button" aria-label="Slide 2" aria-current="false"></button></li>
+              <li><button type="button" aria-label="Slide 3" aria-current="false"></button></li>
+              <li><button type="button" aria-label="Slide 4" aria-current="false"></button></li>
+            </ul>
+          </div>
+        </div>
+
+        <script>
+          (function(){
+            var root = document.getElementById('hbHomeSlider');
+            if (!root) return;
+
+            var slides = Array.prototype.slice.call(root.querySelectorAll('.hb-slide'));
+            var dots = Array.prototype.slice.call(root.querySelectorAll('.hb-indicators button'));
+            var prev = root.querySelector('.hb-nav.prev');
+            var next = root.querySelector('.hb-nav.next');
+
+            var i = 0;
+            var timer = null;
+            var intervalMs = 4500;
+
+            function show(n){
+              i = (n + slides.length) % slides.length;
+              slides.forEach(function(s,k){
+                s.classList.toggle('is-active', k === i);
+              });
+              dots.forEach(function(d,k){
+                d.setAttribute('aria-current', k === i ? 'true' : 'false');
+              });
+            }
+
+            function start(){
+              stop();
+              timer = window.setInterval(function(){ show(i + 1); }, intervalMs);
+            }
+
+            function stop(){
+              if (timer) window.clearInterval(timer);
+              timer = null;
+            }
+
+            dots.forEach(function(d,k){
+              d.addEventListener('click', function(){
+                show(k);
+                start();
+              });
+            });
+
+            if (prev) prev.addEventListener('click', function(){ show(i - 1); start(); });
+            if (next) next.addEventListener('click', function(){ show(i + 1); start(); });
+
+            root.addEventListener('mouseenter', stop);
+            root.addEventListener('mouseleave', start);
+
+            start();
+          })();
+        </script>
+        {{< /rawhtml >}}
+    design:
+      spacing:
+        padding: ["0", "0", "0", "0"]
+
+  # 2) Hero
+  - block: hero
+    content:
+      title: |
+#        BALZER
+#        LAB
+      image:
+        filename: balzerlab.png
+      text: |
+        <div class="hb-hero-text">
+          
+          We uncover how kidney cells **adapt, recover, and fail** in disease.
+
+          Using **single-cell multi-omics,** we drive early diagnosis, precise classification, and personalized therapies for **kidney disorders.**
+        </div>
+    design:
+      css_class: hb-hero-compact hero-vcenter
+      spacing:
+        padding: ["1rem", "0", "1rem", "0"]
+
+  # 3) Navigation buttons
+  - block: markdown
+    content:
+      title: ""
+      text: |
+        <div class="home-nav-buttons">
+          <a class="btn btn-primary" href="/research/">Learn about our Research →</a>
+          <a class="btn btn-primary" href="/team/">Meet the team →</a>
+          <a class="btn btn-primary" href="/publications/">Read our Publications →</a>
+          <a class="btn btn-primary" href="/news/">Get the latest news →</a>
+          <a class="btn btn-primary" href="/contact/">Join our team →</a>
+          <a class="btn btn-primary" href="/social/">Find us on Bluesky →</a>
+        </div>
+    design:
+      spacing:
+        padding: ["2rem", "0", "1.5rem", "0"]
+
+  # 4) Grants
+  - block: markdown
+    content:
+      title: ""
+      text: |
+        <div class="grants-section text-center">
+          <p>We gratefully acknowledge funding and support from:</p>
+          <div class="grants-logos">
+            <img src="/media/logos/erc.png" alt="ERC">
+            <img src="/media/logos/dfg.png" alt="DFG">
+            <img src="/media/logos/ekfs.svg" alt="EKFS">
+            <img src="/media/logos/jackstaedt.png" alt="Jackstädt">
+            <img src="/media/logos/dgfn.svg" alt="DGfN">
+            <img src="/media/logos/daad.png" alt="DAAD">
+            <img src="/media/logos/bihacademy.png" alt="BIH Academy">
+            <img src="/media/logos/bihcsp.png" alt="BIH Clinician Scientist Program">
+            <img src="/media/logos/sonnenfeld.png" alt="Sonnenfeld">
+          </div>
+        </div>
+    design:
+      spacing:
+        padding: ["3rem", "0", "3rem", "0"]
+---

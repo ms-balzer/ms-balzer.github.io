@@ -1,0 +1,86 @@
+<script>
+  console.log("home-carousel hook loaded");
+
+  (function () {
+    function initHomeCarousel() {
+      const root = document.getElementById("homeCarousel");
+      if (!root) return;
+
+      const items = Array.from(root.querySelectorAll(".carousel-item"));
+      const indicators = Array.from(root.querySelectorAll(".carousel-indicators button"));
+      const prevBtn = root.querySelector(".carousel-control-prev");
+      const nextBtn = root.querySelector(".carousel-control-next");
+
+      if (items.length < 2) return;
+
+      let index = items.findIndex((el) => el.classList.contains("active"));
+      if (index < 0) index = 0;
+
+      function setActive(newIndex) {
+        index = (newIndex + items.length) % items.length;
+
+        items.forEach((el, i) => {
+          el.classList.toggle("active", i === index);
+        });
+
+        indicators.forEach((btn, i) => {
+          btn.classList.toggle("active", i === index);
+          btn.setAttribute("aria-current", i === index ? "true" : "false");
+        });
+      }
+
+      indicators.forEach((btn, i) => {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          setActive(i);
+          restart();
+        });
+      });
+
+      if (prevBtn) {
+        prevBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+          setActive(index - 1);
+          restart();
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+          setActive(index + 1);
+          restart();
+        });
+      }
+
+      const intervalMs = 4500;
+      let timer = null;
+
+      function start() {
+        stop();
+        timer = window.setInterval(() => setActive(index + 1), intervalMs);
+      }
+
+      function stop() {
+        if (timer) window.clearInterval(timer);
+        timer = null;
+      }
+
+      function restart() {
+        start();
+      }
+
+      root.addEventListener("mouseenter", stop);
+      root.addEventListener("mouseleave", start);
+
+      setActive(index);
+      start();
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initHomeCarousel);
+    } else {
+      initHomeCarousel();
+    }
+  })();
+</script>

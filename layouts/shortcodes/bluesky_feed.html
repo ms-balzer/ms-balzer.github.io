@@ -1,0 +1,143 @@
+{{/* Build-time Bluesky feed renderer with image + link preview support
+     - Works with #view embed types by using hasPrefix
+     - Preserves newlines
+     - Auto-links http/https URLs in text
+*/}}
+
+{{ $handle := .Get "handle" | default "" }}
+{{ $limit := .Get "limit" | default "10" }}
+
+{{ if not $handle }}
+  <p><strong>Bluesky feed:</strong> missing handle.</p>
+{{ else }}
+  {{ $url := printf "https://public.api.bsky.app/xrpc/app.bsky.feed.getAuthorFeed?actor=%s&limit=%s&filter=posts_no_replies" (urlquery $handle) $limit }}
+
+  {{ with resources.GetRemote $url }}
+    {{ with .Content | unmarshal }}
+      {{ $feed := .feed }}
+
+      {{ if not $feed }}
+        <p>No posts found.</p>
+      {{ else }}
+        <div class="bsky-list">
+          {{ range $feed }}
+            {{ $post := .post }}
+            {{ $record := $post.record }}
+
+            {{ $text := $record.text | default "" }}
+            {{ $created := $record.createdAt | default "" }}
+            {{ $uri := $post.uri | default "" }}
+
+            {{/* Post URL */}}
+            {{ $parts := split $uri "/" }}
+            {{ $rkey := index $parts (sub (len $parts) 1) }}
+            {{ $postLink := printf "https://bsky.app/profile/%s/post/%s" $handle $rkey }}
+
+            {{/* Prefer hydrated embed on post; fallback to record.embed */}}
+            {{ $embed := $post.embed }}
+            {{ if not $embed }}
+              {{ $embed = $record.embed }}
+            {{ end }}
+
+            {{ $etype := "" }}
+            {{ if $embed }}
+              {{ $etype = index $embed "$type" | default "" }}
+            {{ end }}
+
+            {{/* Normalize outputs */}}
+            {{ $images := slice }}
+            {{ $external := dict }}
+
+            {{/* recordWithMedia wrapper */}}
+            {{ $media := dict }}
+            {{ if and $etype (hasPrefix $etype "app.bsky.embed.recordWithMedia") }}
+              {{ $media = index $embed "media" | default (dict) }}
+            {{ end }}
+
+            {{/* Images */}}
+            {{ if and $etype (hasPrefix $etype "app.bsky.embed.images") }}
+              {{ $images = index $embed "images" | default (slice) }}
+            {{ else if $media }}
+              {{ $mtype := index $media "$type" | default "" }}
+              {{ if and $mtype (hasPrefix $mtype "app.bsky.embed.images") }}
+                {{ $images = index $media "images" | default (slice) }}
+              {{ end }}
+            {{ end }}
+
+            {{/* External card */}}
+            {{ if and $etype (hasPrefix $etype "app.bsky.embed.external") }}
+              {{ $external = index $embed "external" | default (dict) }}
+            {{ else if $media }}
+              {{ $mtype := index $media "$type" | default "" }}
+              {{ if and $mtype (hasPrefix $mtype "app.bsky.embed.external") }}
+                {{ $external = index $media "external" | default (dict) }}
+              {{ end }}
+            {{ end }}
+
+            {{ $extUri := "" }}
+            {{ $extTitle := "" }}
+            {{ $extDesc := "" }}
+            {{ $extThumb := "" }}
+
+            {{ if $external }}
+              {{ $extUri = index $external "uri" | default "" }}
+              {{ $extTitle = index $external "title" | default "" }}
+              {{ $extDesc = index $external "description" | default "" }}
+              {{ $extThumb = index $external "thumb" | default "" }}
+            {{ end }}
+
+            {{/* Preserve newlines + linkify https URLs safely */}}
+            {{ $t := $text | htmlEscape }}
+            {{ $t = replace $t "\n" "<br>" }}
+            {{ $t = replaceRE `(https?://[^\s<]+)` `<a href="$1" target="_blank" rel="noopener">$1</a>` $t }}
+
+            <div class="bsky-item">
+              {{ if $created }}
+                <div class="bsky-date">{{ time.Format "02 Jan 2006" (time $created) }}</div>
+              {{ end }}
+
+              <div class="bsky-text">{{ $t | safeHTML }}</div>
+
+              {{ if $extUri }}
+                <a class="bsky-card" href="{{ $extUri }}" target="_blank" rel="noopener">
+                  {{ if $extThumb }}
+                    <div class="bsky-card-thumb">
+                      <img src="{{ $extThumb }}" alt="{{ $extTitle | plainify }}">
+                    </div>
+                  {{ end }}
+                  <div class="bsky-card-body">
+                    {{ if $extTitle }}<div class="bsky-card-title">{{ $extTitle | plainify }}</div>{{ end }}
+                    {{ if $extDesc }}<div class="bsky-card-desc">{{ $extDesc | plainify }}</div>{{ end }}
+                    <div class="bsky-card-url">{{ $extUri | plainify }}</div>
+                  </div>
+                </a>
+              {{ end }}
+
+              {{ if gt (len $images) 0 }}
+                {{ $n := len $images }}
+                <div class="bsky-images {{ if eq $n 1 }}bsky-images-1{{ else if eq $n 2 }}bsky-images-2{{ else }}bsky-images-4{{ end }}">
+                  {{ range $images }}
+                    {{ $thumb := index . "thumb" | default "" }}
+                    {{ $full := index . "fullsize" | default "" }}
+                    {{ $alt := index . "alt" | default "Bluesky image" }}
+                    {{ if and $thumb $full }}
+                      <a class="bsky-image-link" href="{{ $full }}" target="_blank" rel="noopener">
+                        <img class="bsky-image" src="{{ $thumb }}" alt="{{ $alt | plainify }}">
+                      </a>
+                    {{ end }}
+                  {{ end }}
+                </div>
+              {{ end }}
+
+              <div class="bsky-actions">
+                <a href="{{ $postLink }}" target="_blank" rel="noopener">View on Bluesky</a>
+              </div>
+            </div>
+          {{ end }}
+        </div>
+      {{ end }}
+    {{ end }}
+  {{ else }}
+    <p>Could not load Bluesky feed at build time.</p>
+  {{ end }}
+{{ end }}

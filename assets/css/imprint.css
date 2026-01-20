@@ -1,0 +1,7 @@
+/* Make imprint content wider to avoid awkward line breaks */
+.imprint-wide .article-container {
+  max-width: 900px;
+}
+
+/* TEMP TEST - should be obvious if loaded */
+body { outline: 5px solid red; }

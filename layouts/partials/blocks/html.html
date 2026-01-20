@@ -1,0 +1,7 @@
+{{/* Minimal HTML block for Blox */}}
+<section class="section">
+  <div class="container">
+    {{ with .content.title }}<h1>{{ . }}</h1>{{ end }}
+    {{ .content.text | safeHTML }}
+  </div>
+</section>
