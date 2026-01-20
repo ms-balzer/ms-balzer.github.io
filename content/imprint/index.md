@@ -49,6 +49,8 @@ Reproduction and distribution are permitted under the terms of this license. Mod
 
 ### Privacy policy
 
-This website does not use tracking cookies or analytics tools. Personal data are processed only to the extent technically necessary to provide this website.
+This website uses Google Analytics 4 (GA4), a web analytics service provided by Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland. Google Analytics 4 allows us to analyze the use of this website and to improve its content and functionality. In the process, information about your use of this website (including IP address, device information, pages visited, and interactions) is processed.
+On this website, IP anonymization is enabled, meaning that your IP address is shortened before further processing. The use of Google Analytics 4 is based on your explicit consent pursuant to Art. 6(1)(a) GDPR. Google Analytics is only activated after you have given your consent via the cookie banner. You may withdraw your consent at any time by changing your cookie settings.
+Data may be transferred to servers of Google LLC in the United States. Google uses standard contractual clauses approved by the European Commission to ensure an adequate level of data protection.  
 
 If you contact us by email or via contact forms, the information you provide will be used solely for the purpose of responding to your inquiry and will not be shared with third parties. Data are handled in accordance with applicable data protection regulations, including the EU General Data Protection Regulation (GDPR).
