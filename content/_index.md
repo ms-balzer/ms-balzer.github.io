@@ -261,19 +261,23 @@ sections:
       spacing:
         padding: ["0", "0", "0", "0"]
 
-  # 2) Hero
-  - block: hero
-    content:
-      image:
-        filename: balzerlab.png
-      text: |
-        <div class="hb-hero-text">
+# 2) Hero
+- block: hero
+  content:
+    image:
+      filename: balzerlab.png
+    text: |
+      <div class="hb-hero-text">
+        <p>
           We uncover how kidney cells <strong>adapt, recover, and fail</strong> in disease.
+        </p>
+        <p>
           Using <strong>single-cell multi-omics</strong>, we drive early diagnosis, precise classification,
           and personalized therapies for <strong>kidney disorders</strong>.
-        </div>
-    design:
-      css_class: hb-hero-compact hero-vcenter
-      spacing:
-        padding: ["1rem", "0", "1rem", "0"]
+        </p>
+      </div>
+  design:
+    css_class: hb-hero-compact hero-vcenter
+    spacing:
+      padding: ["1rem", "0", "1rem", "0"]
 ---
