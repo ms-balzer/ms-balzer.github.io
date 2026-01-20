@@ -1,8 +1,9 @@
 ---
-title: "Balzer Lab"
+title: "BALZER LAB"
 summary: "Research group in nephrology studying how kidney cells adapt, recover, and fail in disease using single-cell multi-omics."
-description: "The Balzer Lab investigates molecular mechanisms of kidney disease, fibroinflammatory niches, and translational single-cell multi-omics to advance precision nephrology."
-date: 2026-01-16
+description: "The BALZER LAB investigates molecular mechanisms of kidney disease, fibroinflammatory niches, and translational single-cell multi-omics to advance precision nephrology."
+title_seo: "BALZER LAB"
+date: 2026-01-20
 type: landing
 
 sections:
