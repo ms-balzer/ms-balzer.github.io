@@ -274,6 +274,7 @@ sections:
     content:
       title: ""
       text: |
+        {{< rawhtml >}}
         <div class="grants-section text-center">
           <p>We gratefully acknowledge funding and support from:</p>
 
@@ -315,4 +316,6 @@ sections:
             </a>
           </div>
         </div>
+        {{< /rawhtml >}}
+
 ---
