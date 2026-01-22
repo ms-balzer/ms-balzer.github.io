@@ -367,6 +367,28 @@ section:nth-of-type(2) .team-member > img:hover{
   color: #fff;
 }
 
+
+/* -------------------------------------------------------------------------- */
+/* Grants logos                                                                */
+/* -------------------------------------------------------------------------- */
+.grants-logos a {
+  display: inline-block;
+  margin: 0 12px;
+}
+
+.grants-logos img {
+  height: 48px;
+  opacity: 0.85;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.grants-logos a:hover img {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+
+
 /* -------------------------------------------------------------------------- */
 /* RESEARCH PAGE - icon + text blocks                                          */
 /* -------------------------------------------------------------------------- */

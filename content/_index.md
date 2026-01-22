@@ -276,16 +276,43 @@ sections:
       text: |
         <div class="grants-section text-center">
           <p>We gratefully acknowledge funding and support from:</p>
+
           <div class="grants-logos">
-            <img src="/media/logos/erc.png" alt="European Research Council">
-            <img src="/media/logos/dfg.png" alt="German Research Foundation">
-            <img src="/media/logos/ekfs.svg" alt="EKFS Foundation">
-            <img src="/media/logos/jackstaedt.png" alt="Jackstädt Foundation">
-            <img src="/media/logos/dgfn.svg" alt="German Society of Nephrology">
-            <img src="/media/logos/daad.png" alt="DAAD">
-            <img src="/media/logos/bihacademy.png" alt="BIH Academy">
-            <img src="/media/logos/bihcsp.png" alt="BIH Clinician Scientist Program">
-            <img src="/media/logos/sonnenfeld.png" alt="Sonnenfeld Foundation">
+            <a href="https://erc.europa.eu" target="_blank" rel="noopener noreferrer">
+              <img src="/media/logos/erc.png" alt="European Research Council">
+            </a>
+
+            <a href="https://www.dfg.de/en" target="_blank" rel="noopener noreferrer">
+              <img src="/media/logos/dfg.png" alt="German Research Foundation">
+            </a>
+
+            <a href="https://www.ekfs.de/en" target="_blank" rel="noopener noreferrer">
+              <img src="/media/logos/ekfs.svg" alt="EKFS Foundation">
+            </a>
+
+            <a href="https://www.jackstaedt-stiftung.de" target="_blank" rel="noopener noreferrer">
+              <img src="/media/logos/jackstaedt.png" alt="Jackstädt Foundation">
+            </a>
+
+            <a href="https://www.dgfn.eu" target="_blank" rel="noopener noreferrer">
+              <img src="/media/logos/dgfn.svg" alt="German Society of Nephrology">
+            </a>
+
+            <a href="https://www.daad.de/en/" target="_blank" rel="noopener noreferrer">
+              <img src="/media/logos/daad.png" alt="DAAD">
+            </a>
+
+            <a href="https://www.bihealth.org/en/translation/innovation-enabler/academy" target="_blank" rel="noopener noreferrer">
+              <img src="/media/logos/bihacademy.png" alt="BIH Academy">
+            </a>
+
+            <a href="https://www.bihealth.org/en/translation/innovation-enabler/academy/bih-charite-clinician-scientist-program/clinician-scientist-track" target="_blank" rel="noopener noreferrer">
+              <img src="/media/logos/bihcsp.png" alt="BIH Clinician Scientist Program">
+            </a>
+
+            <a href="https://sonnenfeld-stiftung.de" target="_blank" rel="noopener noreferrer">
+              <img src="/media/logos/sonnenfeld.png" alt="Sonnenfeld Foundation">
+            </a>
           </div>
         </div>
 ---
