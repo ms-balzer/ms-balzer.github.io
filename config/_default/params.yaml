@@ -18,14 +18,19 @@ marketing:
     site_type: Organization
     local_business_type: ''
     org_name: 'BALZER LAB'
-    description: 'The Balzer Lab investigates molecular mechanisms of kidney disease; fibroinflammatory niches, translational omics, and precision nephrology.'
-    twitter: ''
+    description: 'The Balzer Lab investigates molecular mechanisms of kidney disease, focusing on fibroinflammatory niches, translational multi-omics, and precision nephrology.'
+    twitter: 'ms_balzer'
+
   analytics:
-    google_analytics: ''
-    baidu_tongji: ''
+    # Prefer setting GA here (theme-native) rather than only under params.
+    # For GA4, Hugo Blox typically accepts the G-... ID.
+    google_analytics: 'G-CLPKJ296DC'
     google_tag_manager: ''
     microsoft_clarity: ''
+
   verification:
+    # Add your Search Console verification token here once you have it.
+    # (In Search Console: Settings -> Ownership verification -> HTML tag)
     google: ''
     baidu: ''
 
@@ -42,7 +47,7 @@ header:
     show_language: false
     show_day_night: true
     show_search: true
-    highlight_active_link: false
+    highlight_active_link: true
 
 # Site footer
 
@@ -75,7 +80,7 @@ features:
   privacy_pack:
     enable: false
   repository:
-    url: 'https://github.com/<username>/<repository>'
+    url: 'https://github.com/ms-balzer/ms-balzer.github.io'
     content_dir: content
     branch: main
   avatar:
