@@ -5,6 +5,7 @@
 
 title: BALZER LAB # Website name
 baseURL: "https://www.balzer-lab.org/"
+canonifyURLs: true
 
 ############################
 ## LANGUAGE
