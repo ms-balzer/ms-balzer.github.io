@@ -5,7 +5,7 @@
 
 title: BALZER LAB # Website name
 baseURL: "https://www.balzer-lab.org/"
-canonifyURLs: true
+canonifyURLs: false
 
 ############################
 ## LANGUAGE
@@ -68,3 +68,6 @@ security:
       - '^https://public\.api\.bsky\.app/.*'
 sitemap:
   _merge: deep
+params:
+  seo:
+    enable: true
