@@ -290,7 +290,7 @@ sections:
               <img src="/media/logos/dfg.png" alt="German Research Foundation">
             </a>
 
-            <a href="https://www.ekfs.de/en" target="_blank" rel="noopener noreferrer">
+            <a href="https://ekfs.de/en" target="_blank" rel="noopener noreferrer">
               <img src="/media/logos/ekfs.svg" alt="EKFS Foundation">
             </a>
 
