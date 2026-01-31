@@ -264,9 +264,9 @@ sections:
       title: ""
       text: |
         <div class="home-nav-buttons">
-          <a class="btn btn-primary" href="/research/">Learn about our Research →</a>
+          <a class="btn btn-primary" href="/research/">Learn about our research →</a>
           <a class="btn btn-primary" href="/team/">Meet the team →</a>
-          <a class="btn btn-primary" href="/publications/">Read our Publications →</a>
+          <a class="btn btn-primary" href="/publications/">Read our publications →</a>
           <a class="btn btn-primary" href="/news/">Get the latest news →</a>
           <a class="btn btn-primary" href="/contact/">Join our team →</a>
           <a class="btn btn-primary" href="/social/">Find us on Bluesky →</a>
