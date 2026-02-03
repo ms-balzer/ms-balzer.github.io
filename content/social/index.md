@@ -7,7 +7,7 @@ Follow the BALZER LAB on Bluesky for updates on research, publications, and posi
 
 <p>
   <a class="btn btn-primary"
-     href="https://bsky.app/profile/ms-balzer.bsky.social"
+     href="https://bsky.app/profile/balzer-lab.org"
      target="_blank"
      rel="noopener">
     Follow us on Bluesky
@@ -16,4 +16,4 @@ Follow the BALZER LAB on Bluesky for updates on research, publications, and posi
 
 ## Latest posts
 
-{{< bluesky_feed handle="ms-balzer.bsky.social" limit="10" >}}
+{{< bluesky_feed handle="balzer-lab.org" limit="50" >}}
