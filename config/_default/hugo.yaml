@@ -45,6 +45,13 @@ imaging:
   quality: 75
   anchor: smart
 timeout: 600000
+
+caches:
+  getjson:
+    maxAge: "15m"
+  getresource:
+    maxAge: "15m"
+
 taxonomies:
   tag: tags
   category: categories
