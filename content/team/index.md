@@ -22,7 +22,7 @@ sections:
             <img src="/media/icons/github.svg" alt="GitHub">
           </a>
 
-          <a href="https://bsky.app/profile/ms-balzer.bsky.social" target="_blank" rel="noopener" aria-label="Bluesky">
+          <a href="https://bsky.app/profile/balzer-lab.org" target="_blank" rel="noopener" aria-label="Bluesky">
             <img src="/media/icons/bluesky.png" alt="Bluesky">
           </a>
 
