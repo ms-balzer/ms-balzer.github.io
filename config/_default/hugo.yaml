@@ -4,7 +4,7 @@
 # This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
 title: BALZER LAB # Website name
-baseURL: "https://www.balzer-lab.org/"
+baseURL: "https://balzer-lab.org/"
 canonifyURLs: false
 
 ############################
