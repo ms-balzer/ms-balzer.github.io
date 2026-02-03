@@ -121,9 +121,6 @@ extensions:
   academicons:
     enable: true
 
-favicon:
-  icon: favicon.ico
-
 # Citation style
 
 publications:
