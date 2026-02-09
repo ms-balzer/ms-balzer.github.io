@@ -42,7 +42,8 @@
 
     function showBanner() {
       const banner = document.createElement("div");
-      banner.id = "cookie-banner";
+      banner.id = "cookie-banner"; 
+      banner.setAttribute("data-nosnippet", "");
       banner.style.cssText = [
         "position:fixed",
         "left:0",
