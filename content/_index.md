@@ -1,6 +1,6 @@
 ---
-title: "BALZER LAB - Molecular Nephrology and Kidney Disease Research"
-title_seo: "BALZER LAB - Molecular Nephrology, Kidney Disease, Single-cell Multi-omics"
+title: "BALZER LAB | Molecular Nephrology and Kidney Disease Research"
+title_seo: "BALZER LAB | Molecular Nephrology, Kidney Disease, Single-cell Multi-omics"
 summary: "Nephrology-focused research group investigating the molecular mechanisms of kidney disease using single-cell multi-omics."
 description: "The BALZER LAB is a nephrology-focused research group investigating the molecular mechanisms of kidney disease. We uncover how kidney cells adapt, recover, and fail in disease. Using single-cell multi-omics, we drive early diagnosis, precise classification, and personalized therapies for kidney disorders."
 date: 2026-01-16
