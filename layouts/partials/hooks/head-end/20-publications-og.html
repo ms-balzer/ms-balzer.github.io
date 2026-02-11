@@ -1,0 +1,15 @@
+{{- if eq .Section "publications" -}}
+  {{- $placeholder := "/media/pub-placeholder.png" -}}
+  {{- $img := $placeholder -}}
+
+  {{- with .Resources.GetMatch "thumb.*" -}}
+    {{- $og := .Fit "1200x1200" -}}
+    {{- $img = $og.RelPermalink -}}
+  {{- end -}}
+
+  {{- $abs := (printf "%s%s" $.Site.BaseURL $img) -}}
+
+<meta property="og:image" content="{{ $abs }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{{ $abs }}">
+{{- end -}}

@@ -74,6 +74,7 @@
             {{- $hero := .Fit "900x900" -}}
             {{- $hero_src = $hero.RelPermalink -}}
           {{- end -}}
+          {{- $hero_abs := (printf "%s%s" $.Site.BaseURL $hero_src) -}}
 
           <div class="pub-detail-hero mb-4">
             {{- if .Params.pdf_url -}}
@@ -136,6 +137,10 @@
             "@type": "ScholarlyArticle",
             "headline": {{ .Title | jsonify }},
             "url": {{ .Permalink | jsonify }},
+            "image": {{ $hero_abs | jsonify }},
+            {{- with .Params.abstract }}
+            "abstract": {{ . | jsonify }},
+            {{- end }}
 
             {{- with .Params.doi_url }}
             "sameAs": {{ . | jsonify }},
