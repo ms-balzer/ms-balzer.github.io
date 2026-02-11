@@ -1,0 +1,25 @@
+BALZER LAB
+
+Website: https://balzer-lab.org/
+Institution: Charité - Universitätsmedizin Berlin
+Field: Nephrology
+
+Focus areas:
+- Kidney cell adaptation, recovery, and failure in disease
+- Fibroinflammatory niches in kidney disease
+- Single-cell and spatial omics
+- Personalized adaptation trajectories
+- Peritoneum biology and translational models
+
+Key pages:
+- Research: https://balzer-lab.org/research/
+- Team: https://balzer-lab.org/team/
+- Publications: https://balzer-lab.org/publications/
+- News: https://balzer-lab.org/news/
+- Contact: https://balzer-lab.org/contact/
+- Social: https://balzer-lab.org/social/
+
+How to cite:
+- Publication detail pages contain BibTeX, RIS, EndNote, and PubMed links
+
+Last updated: 2026-02-11
