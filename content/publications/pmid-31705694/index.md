@@ -1,0 +1,25 @@
+---
+title: "Pretransplant dialysis modality and long-term patient and kidney allograft outcome: a 15-year retrospective single-centre cohort study"
+type: "publications"
+pmid: "31705694"
+doi: "10.1111/tri.13552"
+journal: "Transplant international : official journal of the European Society for Organ Transplantation"
+pubdate_text: "2020 Apr"
+volume: "33"
+issue: "4"
+pages: "376-390"
+pubmed_url: "https://pubmed.ncbi.nlm.nih.gov/31705694/"
+doi_url: "https://doi.org/10.1111/tri.13552"
+pdf_url: "/publications/pmid-31705694/paper.pdf"
+abstract: "Among factors determining long-term kidney allograft outcome, pretransplant renal replacement therapy (RRT) is the most easily modifiable. Previous studies analysing RRT modality impact on patient and graft survival are conflicting. Studies on allograft function are scarce, lack sufficient size and follow-up. We retrospectively studied patient and allograft survival together with allograft function and its decline in 2277 allograft recipients during 2000-2014. Pretransplant RRT modality ≥60 days as grouped into \"no RRT\" (n = 136), \"haemodialysis (HD)\" (n = 1847), \"peritoneal dialysis (PD)\" (n = 159), and \"HD + PD\" (n = 135) was evaluated. Kaplan-Meier analysis demonstrated superior 5-/10-/15-year patient (93.0/81.8/73.1% vs. 86.2/71.6/49.8%), death-censored graft (90.8/85.4/71.5% vs. 84.4/75.2/63.2%), and 1-year rejection-free graft survival (73.8% vs. 63.8%) in PD versus HD patients. Adjusted Cox regression revealed 34.5% [1.5-56.5%] lower hazards of death, whereas death-censored graft loss was similar [HR = 0.707 (0.469-1.064)], and rejection was less frequent [HR = 0.700 (0.508-0.965)]. Allografts showed higher 1-/3-/5-year estimated glomerular filtration rate (eGFR) in \"PD\" versus \"HD\" groups. Living donation benefit for allograft function was most pronounced in groups \"no RRT\" and \"PD\". Functional allograft decline (eGFR slope) was lowest for \"PD\". Allograft recipients on pretransplant PD versus HD demonstrated superior all-cause patient and rejection-free graft survival along with better allograft function (eGFR)."
+generated_at: "2026-02-11T13:54:36"
+authors:
+  - "Balzer MS"
+  - "Pankow S"
+  - "Claus R"
+  - "Dumann E"
+  - "Ruben S"
+  - "Haller H"
+  - "Einecke G"
+---
+

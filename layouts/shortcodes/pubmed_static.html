@@ -1,5 +1,9 @@
 {{- $data := .Site.Data.pubmed -}}
 
+{{- $me1 := "Balzer MS" -}}
+{{- $me2 := "S Balzer M" -}}
+{{- $placeholder := "/media/pub-placeholder.png" -}}
+
 {{- if not $data -}}
   <span class="pubmed-static-stamp"
         data-pubmed-static="true"
@@ -20,39 +24,95 @@
     pubmed_static
   </span>
 
-  <div class="pub-static">
+  <div class="pub-list">
     {{- range $i, $p := $data.items -}}
-      <div class="pub">
-        <a class="pub-title"
-           href="{{ $p.pubmed_url }}"
-           target="_blank"
-           rel="noopener">
-          {{ $p.title }}
-        </a><br>
 
-        {{- if $p.authors }}
-          <span class="pub-authors">{{ delimit $p.authors ", " }}</span><br>
-        {{- end }}
+      {{- $detail := $p.detail_url | default $p.pubmed_url -}}
 
-        <span class="pub-venue">
-          {{ $p.journal }}
-          {{- if $p.pubdate }}, {{ $p.pubdate }}{{ end }}
-          {{- if $p.volume }}; {{ $p.volume }}{{ end }}
-          {{- if $p.issue }}({{ $p.issue }}){{ end }}
-          {{- if $p.pages }}: {{ $p.pages }}{{ end }}
-        </span><br>
+      {{/* Thumbnail source: prefer bundle thumb.*; else placeholder */}}
+      {{- $thumb_src := $placeholder -}}
+      {{- if $p.detail_url -}}
+        {{- $slug := (replace (replace $p.detail_url "/publications/" "") "/" "") -}}
+        {{- $page := site.GetPage (printf "/publications/%s" $slug) -}}
+        {{- if $page -}}
+          {{- with $page.Resources.GetMatch "thumb.*" -}}
+            {{- $img := .Fit "140x140" -}}
+            {{- $thumb_src = $img.RelPermalink -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
 
-        <a href="{{ $p.pubmed_url }}" target="_blank" rel="noopener">PubMed</a>
+      <div class="pub-item">
 
-        {{- if $p.doi_url }}
-          &nbsp;|&nbsp;
-          <a href="{{ $p.doi_url }}" target="_blank" rel="noopener">DOI</a>
-        {{- end }}
+        <div class="pub-thumb-col">
+          <a class="pub-thumb-link"
+             href="{{ $detail }}"
+             aria-label="{{ if $p.detail_url }}Open publication page{{ else }}Open PubMed record{{ end }}"
+             {{- if not $p.detail_url -}} target="_blank" rel="noopener"{{- end -}}>
+            <img class="pub-thumb-img"
+                 src="{{ $thumb_src }}"
+                 alt="{{ if eq $thumb_src $placeholder }}Publication placeholder image{{ else }}Publication thumbnail{{ end }}"
+                 loading="lazy">
+          </a>
+        </div>
+
+        <div class="pub-meta-col">
+
+          <a class="pub-title"
+             href="{{ $detail }}"
+             {{- if not $p.detail_url -}} target="_blank" rel="noopener"{{- end -}}>
+            {{ $p.title }}
+          </a>
+
+          {{- if $p.authors }}
+            <div class="pub-authors">
+              {{- range $ai, $a := $p.authors -}}
+                {{- if gt $ai 0 }}, {{ end -}}
+                {{- if or (eq $a $me1) (eq $a $me2) -}}
+                  <strong>{{ $a }}</strong>
+                {{- else -}}
+                  {{ $a }}
+                {{- end -}}
+              {{- end -}}
+            </div>
+          {{- end }}
+
+          <div class="pub-venue">
+            {{ $p.journal }}
+            {{- if $p.pubdate_text }}, {{ $p.pubdate_text }}{{ end }}
+            {{- if $p.volume }}; {{ $p.volume }}{{ end }}
+            {{- if $p.issue }}({{ $p.issue }}){{ end }}
+            {{- if $p.pages }}: {{ $p.pages }}{{ end }}
+          </div>
+
+          <div class="pub-links">
+            <a href="{{ $p.pubmed_url }}" target="_blank" rel="noopener">PubMed</a>
+
+            {{- if $p.doi_url }}
+              <span class="pub-link-sep">|</span>
+              <a href="{{ $p.doi_url }}" target="_blank" rel="noopener">DOI</a>
+            {{- end }}
+
+            {{- if $p.detail_url }}
+              <span class="pub-link-sep">|</span>
+              <a href="{{ $p.detail_url }}cite.bib" download>BibTeX</a>
+
+              <span class="pub-link-sep">|</span>
+              <a href="{{ $p.detail_url }}cite.ris" download>RIS</a>
+
+              <span class="pub-link-sep">|</span>
+              <a href="{{ $p.detail_url }}cite.enw" download>EndNote</a>
+            {{- end }}
+
+            {{- if $p.pdf_url }}
+              <span class="pub-link-sep">|</span>
+              <a href="{{ $p.pdf_url }}" target="_blank" rel="noopener">PDF</a>
+            {{- end }}
+          </div>
+
+        </div>
       </div>
 
-      {{- if lt (add $i 1) (len $data.items) -}}
-        <br>
-      {{- end -}}
     {{- end -}}
   </div>
 {{- end -}}

@@ -1,0 +1,27 @@
+---
+title: "CX3CL1-CX3CR1 interaction mediates macrophage-mesothelial cross talk and promotes peritoneal fibrosis"
+type: "publications"
+pmid: "30948201"
+doi: "10.1016/j.kint.2018.12.030"
+journal: "Kidney international"
+pubdate_text: "2019 Jun"
+volume: "95"
+issue: "6"
+pages: "1405-1417"
+pubmed_url: "https://pubmed.ncbi.nlm.nih.gov/30948201/"
+doi_url: "https://doi.org/10.1016/j.kint.2018.12.030"
+pdf_url: "/publications/pmid-30948201/paper.pdf"
+abstract: "Peritoneal dialysis (PD) is limited by chronic fibrotic remodeling of the peritoneal wall, a transforming growth factor-β (TGF-β)-mediated process. The fractalkine (CX3CL1) receptor CX3CR1 is expressed on macrophages and monocytes, where it is a marker of TGFβ expression. Detection of its ligand CX3CL1 on the peritoneal mesothelium led us to hypothesize a pathophysiologic role of CX3CL1-CX3CR1 interaction in peritoneal fibrosis. We found that CX3CL1 was expressed on peritoneal mesothelial cells from PD patients and in a murine PD model. CX3CR1, mostly expressed on macrophages in the peritoneal wall, promoted fibrosis induced by chronic dialysate exposure in the mouse model. Our data suggest a positive feedback loop whereby direct interaction with CX3CR1-expressing macrophages promotes mesothelial expression of CX3CL1 and TGFβ expression. In turn, TGFβ upregulates CX3CR1 in murine and human monocytic cells. Upstream, macrophage cytokines including interleukin-1β (IL-1β) promote mesothelial CX3CR1 and TGFβ expression, providing a starting point for CX3CL1-CX3CR1 interaction. IL-1β expression was enhanced by exposure to dialysate both in vitro and in the mouse models. Our data suggest that macrophage-mesothelial cell crosstalk through CX3CR1-CX3CL1 interaction enhances mesothelial TGFβ production, promoting peritoneal fibrosis in response to dialysate exposure. This interaction could be a novel therapeutic target in PD-associated chronic peritoneal fibrosis."
+generated_at: "2026-02-11T13:54:36"
+authors:
+  - "Helmke A"
+  - "Nordlohne J"
+  - "Balzer MS"
+  - "Dong L"
+  - "Rong S"
+  - "Hiss M"
+  - "Shushakova N"
+  - "Haller H"
+  - "von Vietinghoff S"
+---
+

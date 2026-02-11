@@ -1,0 +1,183 @@
+{{ define "main" }}
+<div class="page-body">
+  <div class="container-xl">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-10">
+
+        <article class="article article-publication">
+
+          {{- $me1 := "Balzer MS" -}}
+          {{- $me2 := "S Balzer M" -}}
+          {{- $placeholder := "/media/pub-placeholder.png" -}}
+
+          {{- $citeBib := "cite.bib" -}}
+          {{- $citeRis := "cite.ris" -}}
+          {{- $citeEnw := "cite.enw" -}}
+
+          <header class="mb-4">
+            <h1 class="mb-3">{{ .Title }}</h1>
+
+            {{ with .Params.authors }}
+              <p class="mb-2">
+                <strong>Authors:</strong>&nbsp;
+                {{ range $i, $a := . }}
+                  {{ if gt $i 0 }}, {{ end }}
+                  {{ if or (eq $a $me1) (eq $a $me2) }}
+                    <strong>{{ $a }}</strong>
+                  {{ else }}
+                    {{ $a }}
+                  {{ end }}
+                {{ end }}
+              </p>
+            {{ end }}
+
+            <p class="mb-3">
+              {{ with .Params.journal }}
+                <strong>Journal:</strong> {{ . }}
+              {{ end }}
+
+              {{ with .Params.pubdate_text }}
+                <br><strong>Published:</strong> {{ . }}
+              {{ end }}
+
+              {{ with .Params.volume }}
+                <br><strong>Volume:</strong> {{ . }}
+              {{ end }}
+
+              {{ with .Params.issue }}
+                ({{ . }})
+              {{ end }}
+
+              {{ with .Params.pages }}
+                <br><strong>Pages:</strong> {{ . }}
+              {{ end }}
+            </p>
+
+            <p class="mb-0">
+              {{ with .Params.pubmed_url }}
+                <a href="{{ . }}" target="_blank" rel="noopener">PubMed</a>
+              {{ end }}
+
+              {{ with .Params.doi_url }}
+                <span class="px-2">|</span><a href="{{ . }}" target="_blank" rel="noopener">DOI</a>
+              {{ end }}
+
+              {{ with .Params.pdf_url }}
+                <span class="px-2">|</span><a href="{{ . }}" target="_blank" rel="noopener">Download PDF</a>
+              {{ end }}
+            </p>
+          </header>
+
+          {{/* ---------- HERO THUMBNAIL (before cite block) ---------- */}}
+          {{- $hero_src := $placeholder -}}
+          {{- with .Resources.GetMatch "thumb.*" -}}
+            {{- $hero := .Fit "900x900" -}}
+            {{- $hero_src = $hero.RelPermalink -}}
+          {{- end -}}
+
+          <div class="pub-detail-hero mb-4">
+            {{- if .Params.pdf_url -}}
+              <a href="{{ .Params.pdf_url }}" target="_blank" rel="noopener" aria-label="Open PDF">
+                <img class="pub-detail-hero-img"
+                     src="{{ $hero_src }}"
+                     alt="Publication preview"
+                     loading="lazy">
+              </a>
+            {{- else -}}
+              <img class="pub-detail-hero-img"
+                   src="{{ $hero_src }}"
+                   alt="Publication preview"
+                   loading="lazy">
+            {{- end -}}
+          </div>
+
+          {{/* ---------- CITE BLOCK ---------- */}}
+          <section class="mb-4">
+            <h2 class="h4">Cite this article</h2>
+
+            <p class="mb-2">
+              {{- with .Params.authors -}}
+                {{- delimit . ", " -}}
+              {{- end -}}
+              {{- if .Params.authors -}}. {{- end -}}
+              {{ .Title }}.
+              {{- with .Params.journal }} <em>{{ . }}</em>.{{ end -}}
+              {{- with .Params.pubdate_text }} {{ . }}.{{ end -}}
+              {{- with .Params.volume }} {{ . }}{{ end -}}
+              {{- with .Params.issue }}({{ . }}){{ end -}}
+              {{- with .Params.pages }}:{{ . }}{{ end -}}.
+              {{- with .Params.doi }} doi:{{ . }}.{{ end -}}
+              {{- with .Params.pmid }} PMID:{{ . }}.{{ end -}}
+            </p>
+
+            <p class="mb-0">
+              <a href="./{{ $citeBib }}" download>Download BibTeX</a>
+              <span class="px-2">|</span>
+              <a href="./{{ $citeRis }}" download>Download RIS</a>
+              <span class="px-2">|</span>
+              <a href="./{{ $citeEnw }}" download>Download EndNote</a>
+            </p>
+          </section>
+
+          {{/* ---------- ABSTRACT ---------- */}}
+          {{ with .Params.abstract }}
+            <section class="mb-4">
+              <h2 class="h4">Abstract</h2>
+              {{ range (split . "\n\n") }}
+                <p>{{ . }}</p>
+              {{ end }}
+            </section>
+          {{ end }}
+
+          {{/* ---------- JSON-LD ---------- */}}
+          <script type="application/ld+json">
+          {
+            "@context": "https://schema.org",
+            "@type": "ScholarlyArticle",
+            "headline": {{ .Title | jsonify }},
+            "url": {{ .Permalink | jsonify }},
+
+            {{- with .Params.doi_url }}
+            "sameAs": {{ . | jsonify }},
+            {{- end }}
+
+            "identifier": [
+              {{- if .Params.doi }}
+              { "@type": "PropertyValue", "propertyID": "doi", "value": {{ .Params.doi | jsonify }} },
+              {{- end }}
+              { "@type": "PropertyValue", "propertyID": "pmid", "value": {{ .Params.pmid | jsonify }} }
+            ],
+
+            {{- with .Params.journal }}
+            "isPartOf": { "@type": "Periodical", "name": {{ . | jsonify }} },
+            {{- end }}
+
+            {{- if .Date }}
+            "datePublished": {{ .Date.Format "2006-01-02" | jsonify }},
+            {{- end }}
+
+            {{- with .Params.authors }}
+            "author": [
+              {{- range $i, $a := . -}}
+              { "@type": "Person", "name": {{ $a | jsonify }} }{{ if lt (add $i 1) (len $.Params.authors) }},{{ end }}
+              {{- end -}}
+            ]
+            {{- end }}
+
+            {{- with .Params.pdf_url }},
+            "encoding": {
+              "@type": "MediaObject",
+              "contentUrl": {{ (printf "%s%s" $.Site.BaseURL .) | jsonify }},
+              "fileFormat": "application/pdf"
+            }
+            {{- end }}
+          }
+          </script>
+
+        </article>
+
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}

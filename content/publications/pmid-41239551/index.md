@@ -1,0 +1,28 @@
+---
+title: "Nicotinamide nucleotide transhydrogenase deficiency and genetic susceptibility to high glucose-mediated peritoneal injury in mice"
+type: "publications"
+pmid: "41239551"
+doi: "10.14814/phy2.70642"
+journal: "Physiological reports"
+pubdate_text: "2025 Nov"
+volume: "13"
+issue: "22"
+pages: "e70642"
+pubmed_url: "https://pubmed.ncbi.nlm.nih.gov/41239551/"
+doi_url: "https://doi.org/10.14814/phy2.70642"
+pdf_url: "/publications/pmid-41239551/paper.pdf"
+abstract: "The genetic predisposition to high glucose-induced peritoneal membrane (PM) injury during peritoneal dialysis (PD) and its mechanisms are of substantial clinical interest. We compared PD-induced peritoneal injury between two closely related mouse substrains, C57BL/6J and C57BL/6N, which differ in the function of the mitochondrial enzyme nicotinamide nucleotide transhydrogenase (NNT). Nnt(+/+) C57BL/6N mice exhibited significantly greater susceptibility, as indicated by mesothelial cell loss, fibrosis, neoangiogenesis, inflammation, M1 macrophage infiltration, and reduced ultrafiltration. To further investigate NNT's role, we silenced NNT in vitro. Knockdown prevented mitochondrial ROS accumulation, reduced pro-inflammatory mediator release in mesothelial cells, inhibited M1 polarization in macrophages, and impaired fibroblast proliferation under high glucose. We also observed a reverse NNT reaction in fibroblasts, contributing to glucose-induced ROS. Our findings indicate reduced genetic susceptibility of Nnt(-/-) C57BL/6J mice to PD-induced PM damage and identify NNT as a potential therapeutic target for PD-associated peritoneal injury."
+generated_at: "2026-02-11T13:54:36"
+authors:
+  - "Ohse MC"
+  - "Rong S"
+  - "Schmidt S"
+  - "Balzer MS"
+  - "Nikolin C"
+  - "von Vietinghoff S"
+  - "Haller H"
+  - "Schmidt-Ott KM"
+  - "Kiyan Y"
+  - "Shushakova N"
+---
+

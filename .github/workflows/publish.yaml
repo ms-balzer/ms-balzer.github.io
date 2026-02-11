@@ -1,50 +1,65 @@
 name: Deploy website to GitHub Pages
 
 env:
-  WC_HUGO_VERSION: "0.135.0"
+  WC_HUGO_VERSION: "0.154.5"
 
 on:
-  # Trigger the workflow every time you push to the `main` branch
   push:
     branches: ["main"]
 
-  # Run every 15 minutes (UTC)
   schedule:
     - cron: "*/15 * * * *"
 
-  # Allows you to run this workflow manually from the Actions tab on GitHub.
   workflow_dispatch:
 
-# Provide permission to clone the repo and deploy it to GitHub Pages
 permissions:
-  contents: read
   pages: write
   id-token: write
+  contents: read
 
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
-  # Build website
   build:
-    if: github.repository_owner != 'HugoBlox'
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          # Fetch history for Hugo's .GitInfo and .Lastmod
           fetch-depth: 0
 
+      # Only needed for scheduled/manual runs (push builds just deploy your committed state)
       - name: Set up Python
+        if: github.event_name != 'push'
         uses: actions/setup-python@v5
         with:
           python-version: "3.x"
 
+      # Only refresh PubMed on schedule or manual run
       - name: Fetch PubMed data
+        if: github.event_name != 'push'
+        run: python3 scripts/fetch_pubmed.py
+
+      # Generate thumbs only for schedule/manual runs
+      - name: Install poppler (for PDF thumbnails)
+        if: github.event_name != 'push'
         run: |
-          python3 scripts/fetch_pubmed.py
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils
+
+      - name: Generate PDF thumbnails
+        if: github.event_name != 'push'
+        run: |
+          find content/publications -name "paper.pdf" -print0 | while IFS= read -r -d '' pdf; do
+            dir="$(dirname "$pdf")"
+            out="$dir/thumb"
+            if [ ! -f "$dir/thumb.png" ]; then
+              pdftoppm -png -f 1 -singlefile "$pdf" "$out"
+            fi
+          done
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
@@ -67,38 +82,20 @@ jobs:
         env:
           HUGO_ENVIRONMENT: production
         run: |
-          echo "Hugo Cache Dir: $(hugo config | grep cachedir)"
           hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
-
-      # Debug step: verify what actually got built
-      - name: Debug publications build output
-        run: |
-          echo "Checking built publications HTML..."
-          ls -la public || true
-          ls -la public/publications || true
-
-          echo "First 120 lines of publications page (if exists):"
-          (sed -n '1,120p' public/publications/index.html || true)
-
-          echo "Searching for pubmed stamp:"
-          (grep -R "data-pubmed-static" -n public | head -n 50 || true)
-
-          echo "Searching for warning text:"
-          (grep -R "Static publications list not available yet" -n public | head -n 50 || true)
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
 
-  # Deploy website to GitHub Pages hosting
   deploy:
-    if: github.repository_owner != 'HugoBlox'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
+
     steps:
       - name: Deploy to GitHub Pages
         id: deployment

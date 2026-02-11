@@ -1,0 +1,28 @@
+---
+title: "Patient Perspectives on Renal Replacement Therapy Modality Choice: A Multicenter Questionnaire Study on Bioethical Dimensions"
+type: "publications"
+pmid: "31337700"
+doi: "10.3747/pdi.2018.00285"
+journal: "Peritoneal dialysis international : journal of the International Society for Peritoneal Dialysis"
+pubdate_text: "2019 Nov-Dec"
+volume: "39"
+issue: "6"
+pages: "519-526"
+pubmed_url: "https://pubmed.ncbi.nlm.nih.gov/31337700/"
+doi_url: "https://doi.org/10.3747/pdi.2018.00285"
+pdf_url: "/publications/pmid-31337700/paper.pdf"
+abstract: "Background:Peritoneal dialysis (PD) incidence and prevalence in Germany are low compared with hemodialysis (HD), an underachievement with multifactorial causes. Patient perspectives on renal replacement therapy (RRT) choice play a growing role in research. To date, and to the best of our knowledge, the importance of bioethical dimensions in the context of RRT choice has not been analyzed. The aim of this multicenter questionnaire study was to delineate differences in patient perspectives of PD vs HD in terms of bioethical dimensions, thus helping nephrologists target potential PD candidates more efficiently.Methods:A total of 121 stable outpatients from 2 tertiary care hospitals and 4 dialysis clinics were surveyed for bioethical dimensions (\"autonomy,\" \"beneficence,\" \"non-maleficence,\" \"justice,\" and \"trust\") with ranking and Likert scale items. Inclusion criteria were RRT > 3 months, age ≥ 18 years, and sufficient cognitive and language skills.Results:A surprisingly high percentage of patients felt excluded from the RRT choice process. Peritoneal dialysis patients were more critical of RRT. They used more versatile information sources on RRT, whereas HD patients were mainly informed by their nephrologist. Peritoneal dialysis patients felt more often dissatisfied with RRT than HD patients and had less trust in their co-patients. However, PD patients felt less autonomy impairment regarding body integrity, fluid balance, and dialysis in general.Conclusions:Our study demonstrates that PD patients showed more scrutiny of their situation as patients, especially their co-patients. Their treatment empowered them toward feeling more autonomous than HD patients. These new insights into patient perspectives on RRT choice might facilitate modality choice for nephrologists."
+generated_at: "2026-02-11T13:54:36"
+authors:
+  - "Balzer MS"
+  - "Clajus C"
+  - "Eden G"
+  - "Euteneuer F"
+  - "Haller HG"
+  - "Martin H"
+  - "Patecki M"
+  - "Schmitt R"
+  - "Hiss M"
+  - "Fuerholzer K"
+---
+

@@ -54,3 +54,33 @@ html:has(link[rel="canonical"][href$="/imprint/"]) .article-style p {
   text-align:center;
 }
 
+
+
+/* Publication thumbnails: subtle opacity + zoom on hover */
+.pub-thumb-wrap {
+  margin: 0.4rem 0 0.6rem 0;
+  max-width: 520px;
+}
+
+.pub-thumb-link {
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(0,0,0,.08);
+}
+
+.pub-thumb-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  opacity: 0.92; /* slight transparency */
+  transform: scale(1);
+  transition: transform 180ms ease, opacity 180ms ease;
+  will-change: transform, opacity;
+}
+
+.pub-thumb-link:hover .pub-thumb-img,
+.pub-thumb-link:focus-visible .pub-thumb-img {
+  opacity: 1;
+  transform: scale(1.015); /* subtle zoom */
+}

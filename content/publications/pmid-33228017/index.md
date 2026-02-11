@@ -1,0 +1,28 @@
+---
+title: "SGLT2 Inhibition by Intraperitoneal Dapagliflozin Mitigates Peritoneal Fibrosis and Ultrafiltration Failure in a Mouse Model of Chronic Peritoneal Exposure to High-Glucose Dialysate"
+type: "publications"
+pmid: "33228017"
+doi: "10.3390/biom10111573"
+journal: "Biomolecules"
+pubdate_text: "2020 Nov 19"
+volume: "10"
+issue: "11"
+pubmed_url: "https://pubmed.ncbi.nlm.nih.gov/33228017/"
+doi_url: "https://doi.org/10.3390/biom10111573"
+pdf_url: "/publications/pmid-33228017/paper.pdf"
+abstract: "Peritoneal dialysis (PD) is limited by glucose-mediated peritoneal membrane (PM) fibrosis, angiogenesis, and ultrafiltration failure. Influencing PM integrity by pharmacologically targeting sodium-dependent glucose transporter (SGLT)-mediated glucose uptake has not been studied. In this study, wildtype C57Bl/6N mice were treated with high-glucose dialysate via an intraperitoneal catheter, with or without addition of selective SGLT2 inhibitor dapagliflozin. PM structural changes, ultrafiltration capacity, and peritoneal equilibration testing (PET) status for glucose, urea, and creatinine were analyzed. Expression of SGLT and facilitative glucose transporters (GLUT) was analyzed by real-time PCR, immunofluorescence, and immunohistochemistry. Peritoneal effluents were analyzed for cellular and cytokine composition. We found that peritoneal SGLT2 was expressed in mesothelial cells and in skeletal muscle. Dapagliflozin significantly reduced effluent transforming growth factor (TGF-β) concentrations, peritoneal thickening, and fibrosis, as well as microvessel density, resulting in improved ultrafiltration, despite the fact that it did not affect development of high-glucose transporter status. In vitro, dapagliflozin reduced monocyte chemoattractant protein-1 release under high-glucose conditions in human and murine peritoneal mesothelial cells. Proinflammatory cytokine release in macrophages was reduced only when cultured in high-glucose conditions with an additional inflammatory stimulus. In summary, dapagliflozin improved structural and functional peritoneal health in the context of high-glucose PD."
+generated_at: "2026-02-11T13:54:36"
+authors:
+  - "Balzer MS"
+  - "Rong S"
+  - "Nordlohne J"
+  - "Zemtsovski JD"
+  - "Schmidt S"
+  - "Stapel B"
+  - "Bartosova M"
+  - "von Vietinghoff S"
+  - "Haller H"
+  - "Schmitt CP"
+  - "Shushakova N"
+---
+

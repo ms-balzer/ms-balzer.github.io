@@ -1,0 +1,27 @@
+---
+title: "Development of an Optimized LC-MS Method for the Detection of Specialized Pro-Resolving Mediators in Biological Samples"
+type: "publications"
+pmid: "30899221"
+doi: "10.3389/fphar.2019.00169"
+journal: "Frontiers in pharmacology"
+pubdate_text: "2019"
+volume: "10"
+pages: "169"
+pubmed_url: "https://pubmed.ncbi.nlm.nih.gov/30899221/"
+doi_url: "https://doi.org/10.3389/fphar.2019.00169"
+pdf_url: "/publications/pmid-30899221/paper.pdf"
+abstract: "The cardioprotective and anti-inflammatory effects of long chain omega-3 polyunsaturated fatty acids (n3 PUFA) are believed to be partly mediated by their oxygenated metabolites (oxylipins). In the last two decades interest in a novel group of autacoids termed specialized pro-resolving mediators (SPMs) increased. These are actively involved in the resolution of inflammation. SPMs are multiple hydroxylated fatty acids including resolvins, maresins, and protectins derived from the n3 PUFA eicosapentaenoic acid (EPA) and docosahexaenoic acid (DHA) as well as lipoxins derived from arachidonic acid (ARA). In the present paper, we developed an LC-MS/MS method for a comprehensive set of 18 SPMs derived from ARA, EPA, and DHA and integrated it into our targeted metabolomics platform. Quantification was based on external calibration utilizing five deuterated internal standards in combination with a second internal standard for quality assessment of sample preparation in each sample. The tandem mass spectrometric parameters were carefully optimized for sensitive and specific detection. The influence of source parameters of the used AB Sciex 6500 QTRAP instrument as well as electronic parameters and the selection of transitions are discussed. The method was validated/characterized based on the criteria listed in the European Medicines Agency (EMA) guideline on bioanalytical method validation and method performance is demonstrated regarding recovery of internal standards (between 78 ± 4% and 87 ± 3% from 500 μL of human serum) as well as extraction efficacy of SPMs in spiked plasma (intra-day accuracy within ±20 and ±15% at 0.1 and 0.3 nM in plasma, respectively). Based on the lower limit of quantification of 0.02-0.2 nM, corresponding to 0.18-2.7 pg on column, SPMs were generally not detectable/quantifiable in plasma and serum supporting that circulating levels of SPMs are very low, i.e., <0.1 nM in healthy subjects. Following septic shock or peritonitis, SPMs could be quantified in the samples of several patients. However, in these studies with a small number of patients no clear correlation with severity of inflammation could be observed."
+generated_at: "2026-02-11T13:54:36"
+authors:
+  - "Kutzner L"
+  - "Rund KM"
+  - "Ostermann AI"
+  - "Hartung NM"
+  - "Galano JM"
+  - "Balas L"
+  - "Durand T"
+  - "Balzer MS"
+  - "David S"
+  - "Schebb NH"
+---
+
