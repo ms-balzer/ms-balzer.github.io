@@ -1,27 +1,63 @@
 {{- $data := .Site.Data.pubmed -}}
+
+<!-- pubmed_static shortcode loaded -->
+<!-- pubmed_static: has_data={{ if $data }}true{{ else }}false{{ end }} -->
+{{- if $data -}}
+<!-- pubmed_static: generated_at={{ $data.generated_at }} count={{ $data.count }} -->
+{{- end -}}
+
 {{- if not $data -}}
+
 <p><em>Static publications list not available yet. Generate data/pubmed.json.</em></p>
+
 {{- else -}}
+
 <div class="pub-static">
+
   {{- range $i, $p := $data.items -}}
+
     <div class="pub">
-      <a class="pub-title" href="{{ $p.pubmed_url }}" rel="noopener" target="_blank">{{ $p.title }}</a><br>
 
-      {{- if $p.authors -}}
-        <span class="pub-authors">{{ delimit $p.authors ", " }}</span><br>
-      {{- end -}}
+      <a class="pub-title"
+         href="{{ $p.pubmed_url }}"
+         target="_blank"
+         rel="noopener">
+        {{ $p.title }}
+      </a><br>
 
-      <span class="pub-venue">{{ $p.source }}{{ if $p.pubdate }}, {{ $p.pubdate }}{{ end }}</span><br>
+      {{- if $p.authors }}
+        <span class="pub-authors">
+          {{ delimit $p.authors ", " }}
+        </span><br>
+      {{- end }}
 
-      <a href="{{ $p.pubmed_url }}" rel="noopener" target="_blank">PubMed</a>
-      {{- if $p.doi_url -}}
-        &nbsp;|&nbsp;<a href="{{ $p.doi_url }}" rel="noopener" target="_blank">DOI</a>
-      {{- end -}}
+      <span class="pub-venue">
+        {{ $p.journal }}
+        {{- if $p.pubdate }}, {{ $p.pubdate }}{{ end }}
+        {{- if $p.volume }}; {{ $p.volume }}{{ end }}
+        {{- if $p.issue }}({{ $p.issue }}){{ end }}
+        {{- if $p.pages }}: {{ $p.pages }}{{ end }}
+      </span><br>
+
+      <a href="{{ $p.pubmed_url }}" target="_blank" rel="noopener">
+        PubMed
+      </a>
+
+      {{- if $p.doi_url }}
+        &nbsp;|&nbsp;
+        <a href="{{ $p.doi_url }}" target="_blank" rel="noopener">
+          DOI
+        </a>
+      {{- end }}
+
     </div>
 
-    {{- if lt (add $i 1) (len $data.items) -}}
+    {{- if lt (add $i 1) (len $data.items) }}
       <br>
-    {{- end -}}
-  {{- end -}}
+    {{- end }}
+
+  {{- end }}
+
 </div>
+
 {{- end -}}
