@@ -35,27 +35,23 @@ jobs:
 
       - name: Fetch PubMed data
         run: |
-          python3 --version
-          ls -la scripts || true
           python3 scripts/fetch_pubmed.py
-          echo "pubmed.json exists?"
-          ls -la data || true
           test -f data/pubmed.json
 
       - name: Install poppler (for PDF thumbnails)
         run: |
           sudo apt-get update
           sudo apt-get install -y poppler-utils
-          pdftoppm -v
 
       - name: Generate PDF thumbnails
         run: |
           find content/publications -name "paper.pdf" -print0 | while IFS= read -r -d '' pdf; do
             dir="$(dirname "$pdf")"
-            out="$dir/thumb"
-            if [ ! -f "$dir/thumb.png" ]; then
-              echo "Creating thumb.png in $dir"
-              pdftoppm -png -f 1 -singlefile "$pdf" "$out"
+            thumb="$dir/thumb.png"
+
+            if [ ! -f "$thumb" ] || [ "$pdf" -nt "$thumb" ]; then
+              echo "Creating/updating thumb.png in $dir"
+              pdftoppm -png -f 1 -singlefile "$pdf" "$dir/thumb"
             fi
           done
 
