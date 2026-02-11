@@ -29,17 +29,17 @@ jobs:
           fetch-depth: 0
 
       - name: Set up Python
-        if: github.event_name != 'push'
         uses: actions/setup-python@v5
         with:
           python-version: "3.x"
 
+      # Always generate PubMed JSON so /publications/ works on every deploy
       - name: Fetch PubMed data
-        if: github.event_name != 'push'
         run: |
           python3 scripts/fetch_pubmed.py
           test -f data/pubmed.json
 
+      # Only do the slow thumbnail pipeline on schedule/manual
       - name: Install poppler (for PDF thumbnails)
         if: github.event_name != 'push'
         run: |
@@ -52,7 +52,6 @@ jobs:
           find content/publications -name "paper.pdf" -print0 | while IFS= read -r -d '' pdf; do
             dir="$(dirname "$pdf")"
             thumb="$dir/thumb.png"
-
             if [ ! -f "$thumb" ] || [ "$pdf" -nt "$thumb" ]; then
               echo "Creating/updating thumb.png in $dir"
               pdftoppm -png -f 1 -singlefile "$pdf" "$dir/thumb"
