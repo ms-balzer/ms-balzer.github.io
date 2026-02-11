@@ -1,0 +1,27 @@
+{{- $data := .Site.Data.pubmed -}}
+{{- if not $data -}}
+<p><em>Static publications list not available yet. Generate data/pubmed.json.</em></p>
+{{- else -}}
+<div class="pub-static">
+  {{- range $i, $p := $data.items -}}
+    <div class="pub">
+      <a class="pub-title" href="{{ $p.pubmed_url }}" rel="noopener" target="_blank">{{ $p.title }}</a><br>
+
+      {{- if $p.authors -}}
+        <span class="pub-authors">{{ delimit $p.authors ", " }}</span><br>
+      {{- end -}}
+
+      <span class="pub-venue">{{ $p.source }}{{ if $p.pubdate }}, {{ $p.pubdate }}{{ end }}</span><br>
+
+      <a href="{{ $p.pubmed_url }}" rel="noopener" target="_blank">PubMed</a>
+      {{- if $p.doi_url -}}
+        &nbsp;|&nbsp;<a href="{{ $p.doi_url }}" rel="noopener" target="_blank">DOI</a>
+      {{- end -}}
+    </div>
+
+    {{- if lt (add $i 1) (len $data.items) -}}
+      <br>
+    {{- end -}}
+  {{- end -}}
+</div>
+{{- end -}}
