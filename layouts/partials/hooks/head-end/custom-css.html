@@ -1,7 +1,1 @@
 <link rel="stylesheet" href="{{ "css/custom.css" | relURL }}">
-
-{{- if eq .Section "publications" -}}
-  {{- with .Params.doi_url -}}
-<link rel="canonical" href="{{ . }}">
-  {{- end -}}
-{{- end -}}
