@@ -1,5 +1,0 @@
-{{- if and (eq .Section "publications") (.Params.doi_url) -}}
-  <link rel="canonical" href="{{ .Params.doi_url }}">
-{{- else -}}
-  <link rel="canonical" href="{{ .Permalink }}">
-{{- end -}}
