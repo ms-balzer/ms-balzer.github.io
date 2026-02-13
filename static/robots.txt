@@ -1,0 +1,28 @@
+# BALZER LAB robots.txt
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://balzer-lab.org/sitemap.xml
+
+# AI metadata reference
+LLMs: https://balzer-lab.org/llms.txt
+
+
+# Explicit permissions for major AI crawlers
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
