@@ -6,9 +6,6 @@ Allow: /
 # Sitemap
 Sitemap: https://balzer-lab.org/sitemap.xml
 
-# AI metadata reference
-LLMs: https://balzer-lab.org/llms.txt
-
 
 # Explicit permissions for major AI crawlers
 
