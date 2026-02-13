@@ -81,3 +81,8 @@ sitemap:
 params:
   seo:
     enable: true
+
+minify:
+  tdewolff:
+    html:
+      keepQuotes: true
