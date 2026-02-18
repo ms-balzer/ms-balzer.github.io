@@ -3,12 +3,12 @@ title: "BALZER LAB | Molecular Nephrology and Kidney Disease Research"
 title_seo: "BALZER LAB | Molecular Nephrology, Kidney Disease, Single-cell Multi-omics"
 summary: "Nephrology-focused research group investigating the molecular mechanisms of kidney disease using single-cell multi-omics."
 description: "The BALZER LAB is a nephrology-focused research group investigating the molecular mechanisms of kidney disease. We uncover how kidney cells adapt, recover, and fail in disease. Using single-cell multi-omics, we drive early diagnosis, precise classification, and personalized therapies for kidney disorders."
-date: 2026-01-16
+date: 2026-02-18
 type: landing
 
 sections:
 
-  # 1) Full-bleed custom slider + global CSS for slider + hero tweaks
+  # 1) Full-bleed slider + CSS
   - block: markdown
     content:
       title: ""
@@ -20,15 +20,10 @@ sections:
             --hb-hero-logo-h-mobile: 220px;
           }
 
-          /* Homepage H1 */
           .hb-home-h1{
             margin: 0 0 .6rem 0;
             line-height: 1.1;
           }
-
-          /* -------------------------------------------------------------------------- */
-          /* SLIDER                                                                      */
-          /* -------------------------------------------------------------------------- */
 
           .hb-fullbleed {
             width: 100vw;
@@ -62,36 +57,6 @@ sections:
             display: block;
           }
 
-          .hb-indicators {
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 14px;
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            z-index: 5;
-            padding: 0;
-            margin: 0;
-            list-style: none;
-            pointer-events: none;
-          }
-
-          .hb-indicators button {
-            pointer-events: auto;
-            width: 38px;
-            height: 10px;
-            border-radius: 999px;
-            border: 1px solid rgba(255,255,255,0.65);
-            background: rgba(255,255,255,0.25);
-            backdrop-filter: blur(6px);
-            cursor: pointer;
-          }
-
-          .hb-indicators button[aria-current="true"] {
-            background: rgba(255,255,255,0.85);
-          }
-
           .hb-nav {
             position: absolute;
             top: 50%;
@@ -105,37 +70,10 @@ sections:
             display: grid;
             place-items: center;
             cursor: pointer;
-            user-select: none;
           }
 
           .hb-nav.prev { left: 14px; }
           .hb-nav.next { right: 14px; }
-
-          .hero-vcenter .row {
-            align-items: center;
-          }
-
-          .hero-vcenter .container,
-          .hero-vcenter .container-fluid {
-            padding-top: 0;
-            padding-bottom: 0;
-          }
-
-          .hero-vcenter .hero-content,
-          .hero-vcenter .hero-lead,
-          .hero-vcenter .hero-text,
-          .hero-vcenter .hero-media,
-          .hero-vcenter .hero-image {
-            margin-top: 0;
-            margin-bottom: 0;
-            padding-top: 0;
-            padding-bottom: 0;
-          }
-
-          .hero-vcenter img {
-            display: block;
-            margin: 0 auto;
-          }
 
           .hb-hero-compact .hb-hero-text {
             min-height: var(--hb-hero-logo-h);
@@ -180,15 +118,8 @@ sections:
               <img src="/media/slide4.png" alt="Translational nephrology research">
             </div>
 
-            <button class="hb-nav prev" type="button" aria-label="Previous slide">‹</button>
-            <button class="hb-nav next" type="button" aria-label="Next slide">›</button>
-
-            <ul class="hb-indicators" aria-label="Choose slide">
-              <li><button type="button" aria-current="true"></button></li>
-              <li><button type="button"></button></li>
-              <li><button type="button"></button></li>
-              <li><button type="button"></button></li>
-            </ul>
+            <button class="hb-nav prev" type="button">‹</button>
+            <button class="hb-nav next" type="button">›</button>
           </div>
         </div>
 
@@ -197,24 +128,15 @@ sections:
             var root = document.getElementById('hbHomeSlider');
             if (!root) return;
             var slides = Array.from(root.querySelectorAll('.hb-slide'));
-            var dots = Array.from(root.querySelectorAll('.hb-indicators button'));
             var prev = root.querySelector('.hb-nav.prev');
             var next = root.querySelector('.hb-nav.next');
             var i = 0;
-            var timer = null;
             function show(n){
               i = (n + slides.length) % slides.length;
               slides.forEach((s,k)=>s.classList.toggle('is-active',k===i));
-              dots.forEach((d,k)=>d.setAttribute('aria-current',k===i));
             }
-            function start(){ stop(); timer = setInterval(()=>show(i+1),4500); }
-            function stop(){ if (timer) clearInterval(timer); }
-            dots.forEach((d,k)=>d.onclick=()=>{show(k);start();});
-            prev.onclick=()=>{show(i-1);start();};
-            next.onclick=()=>{show(i+1);start();};
-            root.onmouseenter=stop;
-            root.onmouseleave=start;
-            start();
+            prev.onclick=()=>show(i-1);
+            next.onclick=()=>show(i+1);
           })();
         </script>
         {{< /rawhtml >}}
@@ -252,7 +174,7 @@ sections:
     content:
       title: ""
       text: |
-        <div class="home-nav-buttons">
+        <div class="home-nav-buttons text-center">
           <a class="btn btn-primary" href="/research/">Learn about our research →</a>
           <a class="btn btn-primary" href="/team/">Meet the team →</a>
           <a class="btn btn-primary" href="/publications/">Read our publications →</a>
@@ -270,7 +192,17 @@ sections:
         <div class="grants-section text-center">
           <p>We gratefully acknowledge funding and support from:</p>
           <div class="grants-logos">
-            <!-- logos unchanged -->
+            <img src="/media/logos/erc.png" alt="European Research Council">
+            <img src="/media/logos/dfg.png" alt="German Research Foundation">
+            <img src="/media/logos/ekfs.svg" alt="EKFS Foundation">
+            <img src="/media/logos/jackstaedt.png" alt="Jackstädt Foundation">
+            <img src="/media/logos/dgfn.svg" alt="German Society of Nephrology">
+            <img src="/media/logos/daad.png" alt="DAAD">
+            <img src="/media/logos/bihacademy.png" alt="BIH Academy">
+            <img src="/media/logos/bihcsp.png" alt="BIH Clinician Scientist Program">
+            <img src="/media/logos/sonnenfeld.png" alt="Sonnenfeld Foundation">
           </div>
         </div>
         {{< /rawhtml >}}
+
+---
