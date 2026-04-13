@@ -40,14 +40,14 @@ We actively seek **strategic partnerships** with industry to jointly support and
 
 ## Visit us
 
-{{< gmap src="https://www.google.com/maps?q=Hessische%20Str.%204A,%2010115%20Berlin,%20Germany&output=embed" >}}
+{{< gmap src="https://www.google.com/maps?q=UKSH%20Campus%20Kiel%20Klinik%20f%C3%BCr%20Innere%20Medizin%20IV&output=embed" >}}
 
 **BALZER LAB**  
-Charité – Universitätsmedizin Berlin
-Dpt. of Nephrology and Medical Intensive Care  
-Campus Charité Mitte (CCM)  
-Hessische Str. 3-4  
-10115 Berlin  
+University Hospital Schleswig-Holstein  
+Campus Kiel  
+Dpt. of Nephrology and Hypertension  
+Arnold-Heller-Str. 3  
+24105 Kiel  
 Germany  
 
   </div>

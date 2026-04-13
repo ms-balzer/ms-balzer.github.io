@@ -1,7 +1,7 @@
 ---
 title: "We are hiring"
-date: 2026-01-17
-summary: "Open positions in the Balzer Lab."
+date: 2026-04-13
+summary: "Open positions in the Balzer Lab at Kiel University and the University Hospital Schleswig-Holstein"
 featured: true
 profile: false
 authors: []
@@ -25,4 +25,4 @@ We are particularly interested in candidates with backgrounds in:
 - Molecular biology
 - Translational nephrology
 
-If you are interested please **[contact us](/contact/)** and send your CV and a letter of intent to Dr. Balzer.
+If you are interested please **[contact us](/contact/)** and send your CV and a letter of intent to Professor Balzer.

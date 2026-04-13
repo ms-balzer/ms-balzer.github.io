@@ -1,6 +1,6 @@
 ---
 title: "The BALZER LAB moves from Charité to Kiel"
-date: 2026-04-13
+date: 2026-04-03
 summary: "The lab relocates to Kiel University and the University Hospital Schleswig-Holstein."
 profile: false
 authors: []

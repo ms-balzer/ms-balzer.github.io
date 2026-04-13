@@ -7,11 +7,11 @@ css_class: imprint-wide
 
 
 **BALZER LAB**  
-Charité – Universitätsmedizin Berlin
-Dpt. of Nephrology and Medical Intensive Care  
-Campus Charité Mitte (CCM)  
-Hessische Str. 3-4  
-10115 Berlin  
+University Hospital Schleswig-Holstein  
+Campus Kiel  
+Dpt. of Nephrology and Hypertension  
+Arnold-Heller-Str. 3  
+24105 Kiel  
 Germany  
 
 ---
@@ -19,11 +19,12 @@ Germany
 ### Responsible for the content according to § 5 TMG
 
 Michael S. Balzer, M.D., FASN  
+Associate Professor for Translational Molecular Nephrology and Single-Cell Phenotyping
 Group Leader  
 Attending Physician  
 Specialist in Internal Medicine and Nephrology  
 Fellow of the American Society of Nephrology (FASN)  
-Email: michael-soeren.balzer@charite.de  
+Email: MichaelSoeren.Balzer@uksh.de  
 
 ---
 

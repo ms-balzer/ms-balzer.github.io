@@ -13,6 +13,7 @@ sections:
             <img src="/media/team/balzer.JPG" alt="Michael S. Balzer, MD">
             <h3>Michael S. Balzer, MD</h3>
             <p class="role">Principal Investigator</p>
+            <p class="focus">Associate Professor for Translational Molecular Nephrology and Single-Cell Phenotyping</p>
         <div class="profile-links-md">
           <a href="https://orcid.org/0000-0003-0508-1260" target="_blank" rel="noopener" aria-label="ORCID">
             <img src="/media/icons/orcid.png" alt="ORCID">
