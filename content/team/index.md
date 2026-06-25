@@ -40,14 +40,6 @@ sections:
           </div>
 
           <div class="team-member">
-            <img src="/media/team/ye.jpg" alt="Jiajia Ye, MSc">
-            <h3>Jiajia Ye, MSc</h3>
-            <p class="role">PhD student</p>
-            <p class="focus">Kidney epithelial cell culture in DKD</p>
-            <p class="funding"><em>CSC fellowship</em></p>
-          </div>
-
-          <div class="team-member">
             <img src="/media/team/schuebel.png" alt="Yael Schübel">
             <h3>Yael Schübel</h3>
             <p class="role">MD student</p>
@@ -69,6 +61,22 @@ sections:
             <p class="focus">Single-cell analysis in peritoneal fibrosis</p>
           </div>
 
+        </div>
+
+  - block: markdown
+    content:
+      title: "Alumni"
+      text: |
+        <div class="team-grid team-grid--alumni">
+
+          <div class="team-member">
+            <img src="/media/team/ye.jpg" alt="Jiajia Ye, MSc">
+            <h3>Jiajia Ye, MSc</h3>
+            <p class="role">PhD student</p>
+            <p class="focus">Kidney epithelial cell culture in DKD</p>
+            <p class="funding"><em>CSC fellowship</em></p>
+          </div>
+
           <div class="team-member">
             <img src="/media/team/kaczorowska.png" alt="Paulina Kaczorowska, BSc">
             <h3>Paulina Kaczorowska, BSc</h3>
@@ -82,14 +90,6 @@ sections:
             <p class="role">MA student</p>
             <p class="focus">Human kidney epithelial cell culture in AKI</p>
           </div>
-
-        </div>
-
-  - block: markdown
-    content:
-      title: "Alumni"
-      text: |
-        <div class="team-grid team-grid--alumni">
 
           <div class="team-member">
             <img src="/media/team/abdank.png" alt="Kathrien Abdank">
