@@ -17,4 +17,4 @@ We received many applications from candidates with terrific backgrounds, strong 
 
 Thank you to all applicants for your interest in the lab and in the **ERC Starting Grant project SINGuLAR**.
 
-We are excited to welcome the two successful candidates to the Balzer Lab soon and look forward to starting this next chapter together.
+We are excited to welcome the two successful candidates to the BALZER LAB soon and look forward to starting this next chapter together.
