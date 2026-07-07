@@ -1,7 +1,7 @@
 ---
 title: "We are hiring"
 date: 2026-07-06
-summary: "Open positions in the Balzer Lab at Kiel University and the University Hospital Schleswig-Holstein"
+summary: "Open positions in the BALZER LAB at Kiel University and the University Hospital Schleswig-Holstein"
 featured: true
 profile: false
 authors: []

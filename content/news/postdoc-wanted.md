@@ -1,7 +1,7 @@
 ---
 title: "Open Postdoc Position – Experimental Single-cell & Spatial Omics in Kidney Adaptation (ERC-funded)"
 date: 2026-07-07
-summary: "Open postdoc position in the Balzer Lab at Kiel University and the University Hospital Schleswig-Holstein"
+summary: "Open postdoc position in the BALZER LAB at Kiel University and the University Hospital Schleswig-Holstein"
 featured: true
 profile: false
 authors: []
@@ -29,7 +29,7 @@ September 1, 2026
 **Application closing date**  
 August 15, 2026
 
-We are seeking a postdoctoral researcher to join the **ERC Starting Grant project SINGuLAR** (https://cordis.europa.eu/project/id/101219388) at the **Balzer Lab** (https://balzer-lab.org), investigating how human kidneys adapt to organ loss.
+We are seeking a postdoctoral researcher to join the **ERC Starting Grant project SINGuLAR** (https://cordis.europa.eu/project/id/101219388) at the **BALZER LAB** (https://balzer-lab.org), investigating how human kidneys adapt to organ loss.
 
 Our lab studies how human kidneys regenerate after organ loss using cutting-edge single-cell and translational approaches. Rather than focusing on injury, this project investigates **pure adaptation** in living kidney donors—a unique human model in which individuals lose 50% of kidney mass yet show remarkable compensatory growth.
 
