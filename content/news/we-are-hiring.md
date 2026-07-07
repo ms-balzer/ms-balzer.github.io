@@ -1,6 +1,6 @@
 ---
 title: "We are hiring"
-date: 2026-07-07
+date: 2026-07-06
 summary: "Open positions in the Balzer Lab at Kiel University and the University Hospital Schleswig-Holstein"
 featured: true
 profile: false
@@ -14,10 +14,11 @@ image:
 We are hiring motivated people to join the BALZER LAB. We are currently looking for:
 
 - **[Postdoc in Single-cell & Spatial Omics in Kidney Adaptation (ERC-funded)](/news/postdoc-wanted/)**
-- **[PhD student in Single-cell & Spatial Omics in Kidney Adaptation (ERC-funded)](/news/phd1-wanted/)**
-- **[PhD student in Organoid & Tubuloid Models in Kidney Adaptation (ERC-funded)](/news/phd2-wanted/)**
-- Technical assistants
 - **[MD Thesis Projects Available for Medical Students at UKSH](/news/md-wanted/)**
+- **[POSITION FILLED: PhD student in Single-cell & Spatial Omics in Kidney Adaptation (ERC-funded)](/news/phd1-wanted/)**
+- **[POSITION FILLED: PhD student in Organoid & Tubuloid Models in Kidney Adaptation (ERC-funded)](/news/phd2-wanted/)**
+- Technical assistants
+
 
 We are particularly interested in candidates with backgrounds in:
 
