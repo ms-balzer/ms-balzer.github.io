@@ -63,4 +63,4 @@ If you are passionate about understanding and ultimately harnessing the mechanis
 
 Please send your CV, letter of motivation, and contact details of two references to **Prof. Michael S. Balzer (MichaelSoeren.Balzer@uksh.de)**.
 
-Please also upload your application via the UKSH application portal **reference 28985.**
+Please also upload your application via the UKSH application portal **[reference 28985](https://jobs.uksh.de/job/Kiel-Postdoc-%28mfd%29-Experimental-Single-cell-&-Spatial-Omics-in-Kidney-Adaptation-%28ERC-funded%29-Schl-24105/1414606933/).**
