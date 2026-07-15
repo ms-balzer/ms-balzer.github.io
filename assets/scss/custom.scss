@@ -205,13 +205,13 @@ body[class*="team"] .article-container {
 }
 
 /* Grayscale alumni photos - apply to headshots only (not icons) */
-section:nth-of-type(2) .team-member > img{
+.team-grid--alumni .team-member > img{
   filter: grayscale(100%);
   opacity: 0.9;
 }
 
 /* Optional: color on hover (nice touch) */
-section:nth-of-type(2) .team-member > img:hover{
+.team-grid--alumni .team-member > img:hover{
   filter: grayscale(0%);
   opacity: 1;
 }
