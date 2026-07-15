@@ -43,6 +43,7 @@ We actively seek **strategic partnerships** with industry to jointly support and
 {{< gmap src="https://www.google.com/maps?q=UKSH%20Campus%20Kiel%20Klinik%20f%C3%BCr%20Innere%20Medizin%20IV&output=embed" >}}
 
 **BALZER LAB**  
+Univ.-Prof. Dr. med. Michael S. Balzer, FASN
 University Hospital Schleswig-Holstein  
 Campus Kiel  
 Dpt. of Nephrology and Hypertension  
