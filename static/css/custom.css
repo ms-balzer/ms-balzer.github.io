@@ -1,62 +1,166 @@
 /* DEBUG: if you don't see this, the file is not loaded */
-#html { box-shadow: inset 0 0 0 12px rgba(255,0,0,0.65) !important; }
+#html {
+  box-shadow: inset 0 0 0 12px rgba(255, 0, 0, 0.65) !important;
+}
 
 /* =========================================
    Imprint page layout fixes
    ========================================= */
 
-/* Make imprint content wider */
 html:has(link[rel="canonical"][href$="/imprint/"]) .article-container {
   max-width: 1100px;
 }
 
-/* Slightly reduce line pressure in dense role blocks */
 html:has(link[rel="canonical"][href$="/imprint/"]) .article-style p {
   line-height: 1.55;
 }
 
-/* Optional: prevent awkward line breaks in long titles */
 .nowrap {
   white-space: nowrap;
 }
 
-/* Team / Alumni grid: center each row as a whole */
-.team-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;   /* centers each row */
-  gap: 2rem 2.5rem;
-}
+/* =========================================
+   TEAM
+   ========================================= */
 
-/* Individual team tiles */
+/* Common team-card styling */
 .team-member {
-  flex: 0 0 220px;           /* tile width; adjust if needed */
+  width: 240px;
+  max-width: 100%;
   text-align: center;
 }
 
-.team-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
-  gap:2rem;
-  align-items:start;
+/*
+  Preserve the existing headshot dimensions and circular styling.
+  Do not force width: 100% or height: auto here.
+*/
+.team-member > img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* Only the CURRENT team grid: make the first card its own row and centered */
-.team-grid--current > .team-member:first-child{
-  grid-column:1 / -1;      /* own row */
-  justify-self:center;     /* centered in that row */
-  max-width:260px;         /* so it looks centered, not stretched */
-  width:100%;
+/* Keep all text centered */
+.team-member h3,
+.team-member p {
+  text-align: center;
 }
 
-/* Optional: center text inside cards */
-.team-member{
-  text-align:center;
+/* ---------- PRINCIPAL INVESTIGATOR ---------- */
+
+/* Michael always has a separate centered row */
+.team-pi {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto 2rem auto;
 }
 
+.team-pi > .team-member {
+  flex: 0 0 240px;
+  width: 240px;
+}
 
+/* ---------- CURRENT TEAM ---------- */
 
-/* Publication thumbnails: subtle opacity + zoom on hover */
+/*
+  Maximum four members per row.
+  Every incomplete row is centered automatically.
+*/
+.team-grid--current {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem 2.5rem;
+  max-width: calc(4 * 240px + 3 * 2.5rem);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.team-grid--current > .team-member {
+  flex: 0 0 240px;
+  width: 240px;
+}
+
+/* ---------- ALUMNI ---------- */
+
+/*
+  Maximum four alumni per row.
+  Every incomplete row is centered automatically.
+*/
+.team-grid--alumni {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem 2.5rem;
+  max-width: calc(4 * 240px + 3 * 2.5rem);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.team-grid--alumni > .team-member {
+  flex: 0 0 240px;
+  width: 240px;
+}
+
+/* ---------- PROFILE LINKS ---------- */
+
+.profile-links-md {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.profile-links-md a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-links-md img {
+  display: block;
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  margin: 0;
+}
+
+.profile-links-md .cv-link {
+  line-height: 1;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+/* Maximum two people per row on tablets and narrower windows */
+@media (max-width: 1150px) {
+  .team-grid--current,
+  .team-grid--alumni {
+    max-width: calc(2 * 240px + 2.5rem);
+  }
+}
+
+/* One person per row on phones */
+@media (max-width: 620px) {
+  .team-pi,
+  .team-grid--current,
+  .team-grid--alumni {
+    max-width: 240px;
+  }
+
+  .team-grid--current,
+  .team-grid--alumni {
+    gap: 1.5rem;
+  }
+}
+
+/* =========================================
+   Publication thumbnails
+   ========================================= */
+
 .pub-thumb-wrap {
   margin: 0.4rem 0 0.6rem 0;
   max-width: 520px;
@@ -66,14 +170,14 @@ html:has(link[rel="canonical"][href$="/imprint/"]) .article-style p {
   display: inline-block;
   overflow: hidden;
   border-radius: 0.5rem;
-  border: 1px solid rgba(0,0,0,.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .pub-thumb-img {
   display: block;
   width: 100%;
   height: auto;
-  opacity: 0.92; /* slight transparency */
+  opacity: 0.92;
   transform: scale(1);
   transition: transform 180ms ease, opacity 180ms ease;
   will-change: transform, opacity;
@@ -82,5 +186,5 @@ html:has(link[rel="canonical"][href$="/imprint/"]) .article-style p {
 .pub-thumb-link:hover .pub-thumb-img,
 .pub-thumb-link:focus-visible .pub-thumb-img {
   opacity: 1;
-  transform: scale(1.015); /* subtle zoom */
+  transform: scale(1.015);
 }
