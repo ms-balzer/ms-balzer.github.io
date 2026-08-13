@@ -50,7 +50,7 @@ sections:
             <h3>Yael Schübel</h3>
             <p class="role">MD Student</p>
             <p class="focus">Spatial transcriptomics in AKI</p>
-            <p class="funding"><em>Sonnenfeld &amp; DGfN fellowships, ASN Kidney STARS program</em></p>
+            <p class="funding"><em>Sonnenfeld &amp; DGfN fellowships, ASN Kidney STARS program, DGfN top 10 abstract award</em></p>
           </div>
 
           <div class="team-member">
