@@ -1,7 +1,7 @@
 ---
-title: "Open Postdoc Position – Experimental Single-cell & Spatial Omics in Kidney Adaptation (ERC-funded)"
+title: "POSITION FILLED: Postdoc Position – Experimental Single-cell & Spatial Omics in Kidney Adaptation (ERC-funded)"
 date: 2026-07-07
-summary: "Open postdoc position in the BALZER LAB at Kiel University and the University Hospital Schleswig-Holstein"
+summary: "POSITION FILLED: postdoc position in the BALZER LAB at Kiel University and the University Hospital Schleswig-Holstein"
 featured: true
 profile: false
 authors: []

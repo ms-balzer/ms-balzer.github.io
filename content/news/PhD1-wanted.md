@@ -1,7 +1,7 @@
 ---
-title: "Open PhD Student Position – Single-cell & Spatial Omics in Kidney Adaptation (ERC-funded)"
+title: "POSITION FILLED: PhD Student Position – Single-cell & Spatial Omics in Kidney Adaptation (ERC-funded)"
 date: 2026-04-20
-summary: "Open PhD student position in the Balzer Lab at Kiel University and the University Hospital Schleswig-Holstein"
+summary: "POSITION FILLED: PhD student position in the Balzer Lab at Kiel University and the University Hospital Schleswig-Holstein"
 featured: true
 profile: false
 authors: []
