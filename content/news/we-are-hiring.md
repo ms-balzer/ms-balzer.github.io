@@ -13,7 +13,7 @@ image:
 
 We are hiring motivated people to join the BALZER LAB. We are currently looking for:
 
-- **[Postdoc in Single-cell & Spatial Omics in Kidney Adaptation (ERC-funded)](/news/postdoc-wanted/)**
+- **[POSITION FILLED: Postdoc in Single-cell & Spatial Omics in Kidney Adaptation (ERC-funded)](/news/postdoc-wanted/)**
 - **[MD Thesis Projects Available for Medical Students at UKSH](/news/md-wanted/)**
 - **[POSITION FILLED: PhD student in Single-cell & Spatial Omics in Kidney Adaptation (ERC-funded)](/news/phd1-wanted/)**
 - **[POSITION FILLED: PhD student in Organoid & Tubuloid Models in Kidney Adaptation (ERC-funded)](/news/phd2-wanted/)**
