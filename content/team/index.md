@@ -38,6 +38,13 @@ sections:
         <div class="team-grid team-grid--current">
 
           <div class="team-member">
+            <img src="/media/team/sivayoganathan.png" alt="Varshi Sivayoganathan, PhD">
+            <h3>Varshi Sivayoganathan, PhD</h3>
+            <p class="role">Postdoc</p>
+            <p class="focus">Single-cell & spatial omics in kidney adaptation</p>
+          </div>
+          
+          <div class="team-member">
             <img src="/media/team/cetin.png" alt="Sena Z. Cetin, MD">
             <h3>Sena Z. Cetin, MD</h3>
             <p class="role">Clinician Scientist</p>
