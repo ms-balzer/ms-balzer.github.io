@@ -38,7 +38,7 @@ sections:
         <div class="team-grid team-grid--current">
 
           <div class="team-member">
-            <img src="/media/team/sivayoganathan.png" alt="Varshi Sivayoganathan, PhD">
+            <img src="/media/team/sivayoganathan.jpeg" alt="Varshi Sivayoganathan, PhD">
             <h3>Varshi Sivayoganathan, PhD</h3>
             <p class="role">Postdoc</p>
             <p class="focus">Single-cell & spatial omics in kidney adaptation</p>
