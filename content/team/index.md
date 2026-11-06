@@ -82,6 +82,13 @@ sections:
             <p class="role">MD Student</p>
             <p class="focus">AKI &amp; kidney adaptation</p>
           </div>
+          
+          <div class="team-member">
+            <img src="/media/team/krieger.png" alt="Moritz Krieger">
+            <h3>Moritz Krieger</h3>
+            <p class="role">MD Student</p>
+            <p class="focus">Adaptation to ischemia &amp; reperfusion</p>
+          </div>
 
         </div>
 
